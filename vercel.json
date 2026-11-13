@@ -1,4 +1,0 @@
-{
-  "cleanUrls": true,
-  "redirects": [{"source":"/:path*","has":[{"type":"host","value":"tuosenapparel.com"}],"destination":"https://www.tuosenapparel.com/:path*","permanent":true}]
-}
