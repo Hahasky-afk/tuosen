@@ -168,6 +168,23 @@ footer{border-top:1px solid var(--line);padding:40px 0 calc(40px + env(safe-area
 footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
 .float{position:fixed;right:calc(18px + env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));z-index:19;display:flex;align-items:center;gap:9px;min-height:52px;padding:0 20px 0 16px;background:var(--acc);color:#0B0B0C;font:700 14px var(--b);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;box-shadow:0 8px 24px #0008}
 
+
+/* light content sections */
+.light{--bg:#F4F4F1;--panel:#FFFFFF;--panel2:#EDEDEA;--ink:#141416;--soft:#46464A;--mut:#77777A;--line:#DCDCD7;background:var(--bg);color:var(--ink)}
+.light .k{color:#4A5A00}
+.light .btn.o{color:var(--ink);border-color:#14141640}
+.light .btn.o:hover{border-color:#141416;color:#141416}
+.light .add{color:var(--ink);border-color:#14141633}
+.light .add[aria-pressed="true"]{background:#141416;color:#D7FF3B;border-color:#141416}
+.light .filters button[aria-pressed="true"]{background:#141416;color:#fff;border-color:#141416}
+.light .step .m .day{background:#141416;color:#D7FF3B}
+.light .quote-card b,.light .step .n,.light .qc li i{color:#141416}
+.light .quote-card{background:#141416;color:#F3F2EE}.light .quote-card b{color:#D7FF3B}.light .quote-card .k{color:#D7FF3B}.light .quote-card p{color:#C9C9C4!important}
+.light .item .row .sz{color:#141416;background:#D7FF3B;padding:2px 6px}
+.light input,.light select,.light textarea{background:#fff}
+.light .picked button{background:#141416;color:#D7FF3B}
+.light .sent{border-color:#141416}
+.light .fit li span[style]{color:#4A5A00!important}
 @media (max-width:1000px){
   .nav{display:none}
   .nums{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -239,7 +256,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
   </div>
 </div></section>
 
-<section id="process" style="padding-top:0"><div class="w">
+<section id="process" class="light"><div class="w">
   <div class="hd"><div><span class="k">How an order runs</span><h2>From your photo<br>to the container</h2></div>
   <p class="lede">Every step below is filmed in our factory. You get photos and video of your own goods before you pay the balance.</p></div>
   <div class="steps">
@@ -257,7 +274,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
   </div>
 </div></section>
 
-<section id="products" style="padding-top:0"><div class="w">
+<section id="products" class="light" style="padding-top:0"><div class="w">
   <div class="hd"><div><span class="k">Real photos · our own label</span><h2>What we make</h2></div>
     <div class="filters" role="group" aria-label="Filter by category">
       <button type="button" aria-pressed="true" data-c="all">All</button>
@@ -280,7 +297,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
   <div class="chips" aria-hidden="true"><span>S</span><span>M</span><span>L</span><span>XL</span><span>2XL</span><span>3XL</span><span class="big">4XL</span><span class="big">5XL</span><span class="big">6XL</span><span class="big">7XL</span><span class="big">8XL</span><span class="big">+</span></div>
 </div></section>
 
-<section id="quality"><div class="w qc">
+<section id="quality" class="light" style="padding-top:0"><div class="w qc">
   <div>
     <span class="k">Quality control</span>
     <h2 style="margin:18px 0 22px">What we check<br>before you pay</h2>
@@ -297,7 +314,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
   <figure><img src="img/trim.jpg" alt="Workers trimming threads and checking finished garments at long tables" loading="lazy"><figcaption>Finishing and checks, Jieyang factory</figcaption></figure>
 </div></section>
 
-<section style="padding-top:0"><div class="w">
+<section class="light" style="padding-top:0"><div class="w">
   <div class="hd"><div><span class="k">Terms</span><h2>Clear terms,<br>no surprises</h2></div></div>
   <div class="terms">
     <div><span class="k">Payment</span><p>30% T/T deposit, 70% before shipment, after you see photos and video of the bulk goods. Paid to our company account only.</p></div>
@@ -309,7 +326,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
   </div>
 </div></section>
 
-<section style="padding-top:0"><div class="w"><div class="fit">
+<section class="light" style="padding-top:0"><div class="w"><div class="fit">
   <div><span class="k">A good fit</span><h3>Who we work well with</h3><ul>
     <li><span aria-hidden="true" style="color:var(--acc)">✓</span>Importers and wholesalers buying basics by the carton, with repeat orders</li>
     <li><span aria-hidden="true" style="color:var(--acc)">✓</span>Big &amp; tall and plus-size menswear sellers who need 4XL–8XL in volume</li>
@@ -323,7 +340,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;ali
   </ul></div>
 </div></div></section>
 
-<section id="about" style="padding-top:0"><div class="w about">
+<section id="about" class="light" style="padding-top:0"><div class="w about">
   <img src="img/cutting.jpg" alt="Two cutters at work on a long cutting table" loading="lazy">
   <div>
     <span class="k">About us</span>
