@@ -16,8 +16,7 @@
 "i": "003",
 "c": "PCS02",
 "k": [
-"polos",
-"basics"
+"polos"
 ],
 "t": [
 "heavy",
@@ -32,8 +31,7 @@
 "i": "004",
 "c": "N58",
 "k": [
-"polos",
-"basics"
+"polos"
 ],
 "t": [
 "ice",
@@ -112,8 +110,7 @@
 "i": "027",
 "c": "PDT01",
 "k": [
-"tees",
-"basics"
+"tees"
 ],
 "t": [
 "air",
@@ -138,8 +135,7 @@
 "i": "034",
 "c": "N01",
 "k": [
-"tees",
-"basics"
+"tees"
 ],
 "t": [
 "ice",
@@ -1619,8 +1615,7 @@
 "i": "328",
 "c": "T38",
 "k": [
-"tees",
-"basics"
+"tees"
 ],
 "t": [
 "heavy",
@@ -2996,8 +2991,7 @@
 "i": "570",
 "c": "DT06",
 "k": [
-"tees",
-"basics"
+"tees"
 ],
 "t": [
 "ice",
