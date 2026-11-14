@@ -17,7 +17,8 @@ EN = importlib.import_module("lang_en").L
 
 # ---- product data (language-neutral) ----
 stall = json.load(open(os.path.join(ROOT, "src/stall_items.json"), encoding="utf-8"))
-prods = [dict(c=c, img=img, k=k, t=t, z="", n=n, p=3) for c, img, k, t, n in TS]
+CLEAN = {"TS-01", "TS-12", "TS-08", "TS-06", "TS-11", "TS-14", "TS-10"}  # studio white-background shots only
+prods = [dict(c=c, img=img, k=k, t=t, z="", n=n, p=3) for c, img, k, t, n in TS if c in CLEAN]
 prods += [dict(c=s["c"], img=s["img"], k=s["k"], t=s["t"], z=s["z"], p=s["p"]) for s in stall]
 # "All" order: basics first, then round-robin across categories by priority so page one shows variety
 first = [p for p in prods if p["p"] == 3]
@@ -36,7 +37,7 @@ counts = {c: sum(c in p["k"] for p in prods) for c in CATS}; counts["all"] = len
 CARD = [("basics", "w-ts-01a", True), ("sets", "p/r046", True), ("tees", "p/r078", False), ("polos", "p/r155", False),
         ("pants", "s/" + next(s["i"] for s in stall if s["c"] == "CK41"), False), ("sweats", "p/r104", False),
         ("knit", "s/" + next(s["i"] for s in stall if s["c"] == "ZY02"), False), ("shirts", "p/r134", False),
-        ("jackets", "s/" + next(s["i"] for s in stall if s["c"] == "PW09"), False)]
+        ("jackets", next(s["img"] for s in stall if "jackets" in s["k"]), False)]
 
 def page(code, hl, hrl, path, name, short, d):
     L = dict(EN)
@@ -58,6 +59,7 @@ def page(code, hl, hrl, path, name, short, d):
     v["filter_btns"] = "".join(f'<button type="button" aria-pressed="{str(c == "all").lower()}" data-c="{c}">{cl[c]} <small>{counts[c]}</small></button>' for c in CATS if counts[c])
     cards = []
     for c, img, big in CARD:
+        if not counts.get(c): continue
         cards.append(f'<a class="cat{" big" if big else ""}{" basics" if c == "basics" else ""}" href="#products" data-c="{c}"><img src="/img/{img}.jpg" alt="" loading="lazy">'
                      f'<div><h3>{cl[c]} <i>→</i></h3><p>{ns.format(n=counts[c])} · {X[code]["proven"] if c == "basics" else "M–8XL"}</p></div>'
                      + (f'<em>{v["cat_size"]}</em>' if big and c != "basics" else "") + '</a>')
