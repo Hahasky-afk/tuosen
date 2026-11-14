@@ -34,13 +34,13 @@ X = {
 }
 # Factory-made basics (from ky's 做过的货): code, image, categories, tags, pieces made
 TS = [("TS-01","w-ts-01a",["basics","tees"],["milk","plain"],"3,000,000+"),("TS-12","w-ts-12a",["basics","tees"],["plain"],"100,000+"),
-("TS-08","w-ts-08",["basics","shorts"],["cargo"],"100,000+"),("TS-02","ts-02",["basics","pants"],["knit","wide"],"80,000+"),
-("TS-09","ts-09",["basics","tees"],["sorona"],"50,000+"),("TS-05","ts-05",["basics","shirts"],["plain"],"40,000+"),
-("TS-03","ts-03",["basics","pants"],["knit","wide"],"40,000+"),("TS-06","w-ts-06",["basics","jackets"],["fleece","zip"],"30,000+"),
-("TS-04","ts-04",["basics","pants"],["knit","wide"],"20,000+"),("TS-11","w-ts-11a",["basics","sweats"],["plain"],"20,000+"),
-("TS-14","w-ts-14",["basics","jackets"],["fleece"],"18,000+"),("TS-13","ts-13",["basics","jackets"],["zip"],"15,000+"),
-("TS-15","ts-15",["basics","jackets"],["zip"],"14,000+"),("TS-10","w-ts-10",["basics","tees"],["milk"],"10,000+"),
-("TS-07","ts-07",["basics","pants"],["knit","barrel","cargo"],"10,000+")]
+("TS-08","w-ts-08",["basics","shorts"],["cargo"],"100,000+"),("TS-02","w-ts-02",["basics","pants"],["knit","wide"],"80,000+"),
+("TS-09","w-ts-09",["basics","tees"],["sorona"],"50,000+"),("TS-05","w-ts-05",["basics","shirts"],["plain"],"40,000+"),
+("TS-03","w-ts-03",["basics","pants"],["knit","wide"],"40,000+"),("TS-06","w-ts-06",["basics","jackets"],["fleece","zip"],"30,000+"),
+("TS-04","w-ts-04",["basics","pants"],["knit","wide"],"20,000+"),("TS-11","w-ts-11a",["basics","sweats"],["plain"],"20,000+"),
+("TS-14","w-ts-14",["basics","jackets"],["fleece"],"18,000+"),("TS-13","w-ts-13",["basics","jackets"],["zip"],"15,000+"),
+("TS-15","w-ts-15",["basics","jackets"],["zip"],"14,000+"),("TS-10","w-ts-10",["basics","tees"],["milk"],"10,000+"),
+("TS-07","w-ts-07",["basics","pants"],["knit","barrel","cargo"],"10,000+")]
 # Page-level strings for the catalogue sections
 P = {
 "en": dict(prod_h2b="Our styles, all categories", search_ph="Search style no., e.g. T38", more_btn="Show more styles", n_styles="{n} styles",
