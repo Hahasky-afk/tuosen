@@ -66,15 +66,8 @@
 
 <section id="categories"><div class="w">
   <div class="hd"><h2>{{cat_h2}}</h2><p class="lede">{{cat_p}}</p></div>
-  <div class="cats">
-    <a class="cat big" href="#products" data-c="tees"><img src="/img/p/r078.jpg" alt="" loading="lazy"><div><h3>{{c_tees}} <i>→</i></h3><p>{{cat_meta}}</p></div><em>{{cat_size}}</em></a>
-    <a class="cat big" href="#products" data-c="polos"><img src="/img/p/r155.jpg" alt="" loading="lazy"><div><h3>{{c_polos}} <i>→</i></h3><p>{{cat_meta}}</p></div><em>{{cat_size}}</em></a>
-    <a class="cat" href="#products" data-c="sets"><img src="/img/p/r046.jpg" alt="" loading="lazy"><div><h3>{{c_sets}} <i>→</i></h3><p>{{cat_meta}}</p></div></a>
-    <a class="cat" href="#products" data-c="sweats"><img src="/img/p/r104.jpg" alt="" loading="lazy"><div><h3>{{c_sweats}} <i>→</i></h3><p>{{cat_meta}}</p></div></a>
-    <a class="cat" href="#products" data-c="shirts"><img src="/img/p/r134.jpg" alt="" loading="lazy"><div><h3>{{c_shirts}} <i>→</i></h3><p>{{cat_meta}}</p></div></a>
-    <a class="cat own" href="#contact"><div><h3>{{c_own}} <i>→</i></h3><p>{{c_own_p}}</p></div></a>
-  </div>
-  <p class="note">{{cat_note}}</p>
+  <div class="cats">{{cat_cards}}</div>
+  <p class="note">{{cat_note2}}</p>
 </div></section>
 
 <section id="ways" class="band"><div class="w">
@@ -119,19 +112,14 @@
 </div></section>
 
 <section id="products" class="pt0"><div class="w">
-  <div class="hd"><div><span class="k">{{prod_k}}</span><h2>{{prod_h2}}</h2></div>
-    <div class="filters" role="group" aria-label="{{filter_label}}">
-      <button type="button" aria-pressed="true" data-c="all">{{c_all}}</button>
-      <button type="button" aria-pressed="false" data-c="tees">{{c_tees}}</button>
-      <button type="button" aria-pressed="false" data-c="sets">{{c_sets}}</button>
-      <button type="button" aria-pressed="false" data-c="polos">{{c_polos}}</button>
-      <button type="button" aria-pressed="false" data-c="sweats">{{c_sweats}}</button>
-      <button type="button" aria-pressed="false" data-c="shirts">{{c_shirts}}</button>
-    </div>
+  <div class="hd"><div><span class="k">{{prod_k}}</span><h2>{{prod_h2b}}</h2></div>
+    <label class="srch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="srch" type="search" placeholder="{{search_ph}}" aria-label="{{search_ph}}"></label>
   </div>
+  <div class="filters" role="group" aria-label="{{filter_label}}">{{filter_btns}}</div>
+  <p class="cnt" id="cnt" aria-live="polite"></p>
   <div class="grid" id="grid"></div>
-  <div class="more"><button type="button" class="btn o" id="more">{{show_all}}</button></div>
-  <p class="pnote">{{prod_note}}</p>
+  <div class="more"><button type="button" class="btn o" id="more">{{more_btn}}</button></div>
+  <p class="pnote">{{prod_note2}}</p>
 </div></section>
 
 <section class="sizes" aria-label="{{sizes_label}}"><div class="w">

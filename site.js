@@ -1,27 +1,26 @@
 (function(){
 const T=window.T||{};
-const P=[
-["r078","T38","tees"],["r046","Z12","sets"],["r155","N04","polos"],["r104","NWY10","sweats"],["r134","G09","shirts"],
-["r076","T52","tees"],["r054","TZ12","sets"],["r143","Z0114","polos"],["r047","Z11","tees"],["r139","G04","shirts"],
-["r199","B01","sets"],["r250","N58","polos"],["r075","T53","tees"],["r188","NWY11","sweats"],["r053","TZ023","sets"],
-["r135","G08","shirts"],["r079","T37","tees"],["r144","Z0113","polos"],["r147","TZ0113","sets"],["r137","G07","shirts"],
-["r048","Z024","tees"],["r145","Z0112","polos"],["r140","G03","shirts"],["r142","G01","shirts"]];
-const N=T.names||{};
-const grid=document.getElementById('grid'),moreBtn=document.getElementById('more');
-let cat='all',showAll=false;
-grid.innerHTML=P.map(([img,code,c])=>`<article class="item" data-cat="${c}">
-<img src="/img/p/${img}.jpg" alt="${(N[code]||'')} ${code}" loading="lazy" width="800" height="1000">
-<div class="tx"><div class="row"><span>${code}</span><span class="sz">M–8XL</span></div>
-<h3>${N[code]||code}</h3>
-<button type="button" class="add" data-code="${code}" aria-pressed="false">${T.add}</button></div></article>`).join('');
-const items=[...grid.querySelectorAll('.item')];
-function draw(){let n=0;items.forEach(i=>{const ok=cat==='all'||i.dataset.cat===cat;const vis=ok&&(showAll||cat!=='all'||n<10);if(ok)n++;i.hidden=!vis});moreBtn.parentElement.hidden=showAll||cat!=='all'}
-function setCat(c){cat=c;document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.c===c));draw()}
-draw();
-moreBtn.addEventListener('click',()=>{showAll=true;draw()});
+const picked=new Set();
+const C=T.cats||{},TG=T.tags||{},TSN=T.ts||{};
+const grid=document.getElementById('grid'),moreBtn=document.getElementById('more'),cnt=document.getElementById('cnt'),srch=document.getElementById('srch');
+let P=[],cat='all',q='',shown=0;const STEP=20;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function card(p){const [code,img,k,t,z,n]=p;const main=k[0]==='basics'?k[1]:k[0];
+ const name=TSN[code]||C[main]||'';const tags=t.map(x=>TG[x]).filter(Boolean).slice(0,2);
+ return `<article class="item${n?' made':''}"><div class="ph"><img src="/img/${img}.jpg" alt="${esc(name+' '+code)}" loading="lazy" width="560" height="700">${n?`<span class="mk">${esc(n)} ${esc(T.shipped)}</span>`:''}</div>
+<div class="tx"><div class="row"><span>${esc(code)}</span><span class="sz">${esc(z)}</span></div><h3>${esc(name)}</h3>${tags.length?`<p class="tg">${tags.map(esc).join(' · ')}</p>`:''}
+<button type="button" class="add" data-code="${esc(code)}" aria-pressed="${picked.has(code)}">${picked.has(code)?T.added:T.add}</button></div></article>`}
+function list(){const Q=q.trim().toUpperCase();return P.filter(p=>(cat==='all'||p[2].includes(cat))&&(!Q||p[0].toUpperCase().includes(Q)))}
+function draw(reset){const L=list();if(reset){shown=0;grid.innerHTML=''}
+ const next=L.slice(shown,shown+STEP);grid.insertAdjacentHTML('beforeend',next.map(card).join(''));shown+=next.length;
+ cnt.textContent=(T.count||'{n}').replace('{n}',L.length);moreBtn.parentElement.hidden=shown>=L.length}
+function setCat(c){cat=c;document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.c===c));if(P.length)draw(true)}
+moreBtn.addEventListener('click',()=>draw(false));
 document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>setCat(b.dataset.c)));
 document.querySelectorAll('a[data-c]').forEach(a=>a.addEventListener('click',()=>setCat(a.dataset.c)));
-const picked=new Set(),box=document.getElementById('picked'),cta=document.getElementById('top-cta'),ctaTxt=cta.textContent;
+let st;srch.addEventListener('input',()=>{clearTimeout(st);st=setTimeout(()=>{q=srch.value;draw(true)},150)});
+fetch('/products.json').then(r=>r.json()).then(d=>{P=d;draw(true)}).catch(()=>{cnt.textContent=''});
+const box=document.getElementById('picked'),cta=document.getElementById('top-cta'),ctaTxt=cta.textContent;
 function drawPicked(){
   box.innerHTML=picked.size?'<span>'+T.picked+'</span>'+[...picked].map(c=>`<button type="button" data-code="${c}">${c} ×</button>`).join(''):'<span>'+T.none+'</span>';
   cta.textContent=picked.size?`${ctaTxt} (${picked.size})`:ctaTxt;

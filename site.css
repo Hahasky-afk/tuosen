@@ -277,3 +277,23 @@ footer{border-top:1px solid var(--line);padding:48px 0 calc(28px + env(safe-area
   .cta .btn{flex:1}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.live i,.tk{animation:none}}
+
+/* catalogue */
+.srch{display:flex;align-items:center;gap:8px;min-width:min(320px,100%);border:1px solid var(--line);padding:0 12px;background:var(--panel)}
+.srch svg{width:18px;height:18px;fill:none;stroke:var(--mut);stroke-width:2;flex:none}
+.srch input{border:0;background:transparent;padding:12px 0}
+.srch:focus-within{border-color:var(--acc)}
+#products .filters{margin-bottom:14px}
+.filters small{opacity:.6;font-size:11px;margin-inline-start:4px}
+.cnt{color:var(--mut);font-size:13px;margin-bottom:14px}
+.item .ph{position:relative;background:#E4E3DF}
+.item.made .ph img{object-fit:contain;background:#F1F0EC}
+.mk{position:absolute;top:8px;inset-inline-start:8px;background:var(--acc);color:#0B0B0C;font:700 11px/1.2 var(--b);padding:5px 7px;letter-spacing:.02em}
+.item .tg{font-size:12.5px;color:var(--mut)}
+.cat.basics img{object-fit:contain;background:#EDECE8}
+.cat.basics:after{background:linear-gradient(0deg,#000d 0,#0000 40%)}
+.cats{grid-template-columns:repeat(4,minmax(0,1fr))}
+html[lang^=zh]{--d:"Noto Sans TC","Anton",sans-serif;--b:"Space Grotesk","Noto Sans TC",system-ui,sans-serif}
+html[lang^=zh] h1,html[lang^=zh] h2,html[lang^=zh] h3{font-weight:700;letter-spacing:.02em;line-height:1.25}
+html[lang^=zh] .hero h1{line-height:1.2}
+@media (max-width:640px){.srch{width:100%}}
