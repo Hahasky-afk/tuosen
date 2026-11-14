@@ -33,14 +33,14 @@ X = {
  ts={"TS-01":"寬鬆牛奶絲T恤","TS-02":"華棉闊腿衛褲","TS-03":"打褶闊腿衛褲","TS-04":"闊腿休閒衛褲","TS-05":"男裝長袖襯衫","TS-06":"搖粒絨半拉鍊上衣","TS-07":"華棉彎刀工裝褲","TS-08":"工裝短褲","TS-09":"索羅娜四針六線長袖","TS-10":"牛奶絲修身背心","TS-11":"連帽衛衣","TS-12":"無袖坎肩背心","TS-13":"女裝毛絨外套","TS-14":"加絨連帽長大衣","TS-15":"羊羔毛拉鍊外套"}),
 }
 # Factory-made basics (from ky's 做过的货): code, image, categories, tags, pieces made
-TS = [("TS-01","w-ts-01a",["basics","tees"],["milk","plain"],"3,000,000+"),("TS-12","w-ts-12a",["basics","tees"],["plain"],"100,000+"),
-("TS-08","w-ts-08",["basics","shorts"],["cargo"],"100,000+"),("TS-02","w-ts-02",["basics","pants"],["knit","wide"],"80,000+"),
-("TS-09","w-ts-09",["basics","tees"],["sorona"],"50,000+"),("TS-05","w-ts-05",["basics","shirts"],["plain"],"40,000+"),
-("TS-03","w-ts-03",["basics","pants"],["knit","wide"],"40,000+"),("TS-06","w-ts-06",["basics","jackets"],["fleece","zip"],"30,000+"),
-("TS-04","w-ts-04",["basics","pants"],["knit","wide"],"20,000+"),("TS-11","w-ts-11a",["basics","sweats"],["plain"],"20,000+"),
-("TS-14","w-ts-14",["basics","jackets"],["fleece"],"18,000+"),("TS-13","w-ts-13",["basics","jackets"],["zip"],"15,000+"),
-("TS-15","w-ts-15",["basics","jackets"],["zip"],"14,000+"),("TS-10","w-ts-10",["basics","tees"],["milk"],"10,000+"),
-("TS-07","w-ts-07",["basics","pants"],["knit","barrel","cargo"],"10,000+")]
+TS = [("TS-01","b-ts-01",["basics","tees"],["milk","plain"],"3,000,000+"),("TS-12","w-ts-12a",["basics","tees"],["plain"],"100,000+"),
+("TS-08","b-ts-08",["basics","shorts"],["cargo"],"100,000+"),("TS-02","b-ts-02",["basics","pants"],["knit","wide"],"80,000+"),
+("TS-09","b-ts-09",["basics","tees"],["sorona"],"50,000+"),("TS-05","b-ts-05",["basics","shirts"],["plain"],"40,000+"),
+("TS-03","b-ts-03",["basics","pants"],["knit","wide"],"40,000+"),("TS-06","w-ts-06",["basics","jackets"],["fleece","zip"],"30,000+"),
+("TS-04","b-ts-04",["basics","pants"],["knit","wide"],"20,000+"),("TS-11","b-ts-11",["basics","sweats"],["plain"],"20,000+"),
+("TS-14","w-ts-14",["basics","jackets"],["fleece"],"18,000+"),("TS-13","b-ts-13",["basics","jackets"],["zip"],"15,000+"),
+("TS-15","b-ts-15",["basics","jackets"],["zip"],"14,000+"),("TS-10","w-ts-10",["basics","tees"],["milk"],"10,000+"),
+("TS-07","b-ts-07",["basics","pants"],["knit","barrel","cargo"],"10,000+")]
 # Page-level strings for the catalogue sections
 P = {
 "en": dict(prod_h2b="Our styles, all categories", search_ph="Search style no., e.g. T38", more_btn="Show more styles", n_styles="{n} styles",

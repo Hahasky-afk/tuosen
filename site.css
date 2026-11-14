@@ -287,7 +287,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 calc(28px + env(safe-area
 .filters small{opacity:.6;font-size:11px;margin-inline-start:4px}
 .cnt{color:var(--mut);font-size:13px;margin-bottom:14px}
 .item .ph{position:relative;background:#E4E3DF}
-.item.made .ph img{object-fit:contain;background:#F1F0EC}
+.item.made .ph img{object-fit:cover;background:#fff}
 .mk{position:absolute;top:8px;inset-inline-start:8px;background:var(--acc);color:#0B0B0C;font:700 11px/1.2 var(--b);padding:5px 7px;letter-spacing:.02em}
 .item .tg{font-size:12.5px;color:var(--mut)}
 .cat.basics img{object-fit:contain;background:#EDECE8}
