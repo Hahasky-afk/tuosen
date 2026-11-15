@@ -32,9 +32,14 @@ drawPicked();
 document.getElementById('q').addEventListener('submit',e=>{
   e.preventDefault();const f=e.target;if(!f.checkValidity()){f.reportValidity();return}
   const v=id=>document.getElementById(id).value.trim();
-  const body=['Name: '+v('f-name'),'Email: '+v('f-mail'),'Country: '+v('f-country'),'Company: '+v('f-co'),'Product: '+v('f-prod'),'Quantity per style: '+v('f-qty'),'Styles: '+([...picked].join(', ')||'-'),'Language: '+document.documentElement.lang,'','Details:',v('f-msg'),'','(Attach reference photos or a tech pack to this email.)'].join('\n');
-  location.href='mailto:yang@tuosenapparel.com?subject='+encodeURIComponent('Inquiry from '+(v('f-co')||v('f-name'))+(v('f-country')?' ('+v('f-country')+')':''))+'&body='+encodeURIComponent(body);
-  document.getElementById('sent').hidden=false;
+  const body=['Name: '+v('f-name'),'Email: '+v('f-mail'),'Country: '+v('f-country'),'Company: '+v('f-co'),'Product: '+v('f-prod'),'Quantity per style: '+v('f-qty'),'Styles: '+([...picked].join(', ')||'-'),'Language: '+document.documentElement.lang,'','Details:',v('f-msg')].join('\n');
+  const subj='Inquiry from '+(v('f-co')||v('f-name'))+(v('f-country')?' ('+v('f-country')+')':'');
+  const mail=()=>{location.href='mailto:yang@tuosenapparel.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body+'\n\n(Attach reference photos or a tech pack to this email.)')};
+  const btn=f.querySelector('button[type=submit]');if(btn)btn.disabled=true;
+  fetch('https://formsubmit.co/ajax/yang@tuosenapparel.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    body:JSON.stringify({_subject:subj,_replyto:v('f-mail'),email:v('f-mail'),_template:'box',_captcha:'false',name:v('f-name'),country:v('f-country'),company:v('f-co'),product:v('f-prod'),quantity:v('f-qty'),styles:[...picked].join(', ')||'-',language:document.documentElement.lang,message:v('f-msg'),_honey:v('f-hp')})})
+  .then(r=>r.json()).then(d=>{if(String(d.success)!=='true')throw 0;document.getElementById('sent').hidden=false;f.reset()})
+  .catch(mail).finally(()=>{if(btn)btn.disabled=false});
 });
 const fv=document.getElementById('filmv'),fb=document.getElementById('filmbox');
 document.getElementById('filmplay').addEventListener('click',()=>{fb.classList.add('on');fv.controls=true;fv.play()});

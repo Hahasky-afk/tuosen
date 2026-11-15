@@ -82,7 +82,7 @@ side_t="Envoyez votre modèle", side_p="Une photo suffit pour commencer. Dites-n
 ct_h2="Dites-nous ce qu'il vous faut", ct_p="Réponse sous 24 heures. Le plus rapide : WhatsApp avec Yang.",
 f_name="Votre nom", f_country="Pays", f_co="Société", optional="Facultatif", f_prod="Produit", f_prod_other="Autre / mon propre modèle", f_qty="Quantité par modèle (pièces)",
 f_msg="De quoi avez-vous besoin ?", f_msg_ph="Modèles, tissu, couleurs, tailles, logo, prix cible", f_send="Envoyer la demande",
-f_sent="Votre messagerie devrait s'ouvrir avec la demande remplie. Cliquez sur envoyer et joignez vos photos. Sinon, écrivez à yang@tuosenapparel.com.",
+f_sent="Merci, votre demande a été envoyée. Yang vous répondra sous 24 heures. Pour envoyer des photos ou une fiche technique, écrivez à yang@tuosenapparel.com ou sur WhatsApp.",
 foot_p="Usine de vêtements à Jieyang, Guangdong, Chine. T-shirts, polos, ensembles et basiques en volume, tailles homme S–8XL.",
 foot_h1="Société", foot_h2="Produits", foot_h3="Contact",
 js=dict(add="Ajouter à la demande", added="Ajouté ✓", picked="Modèles dans cette demande :", none="Aucun modèle ajouté. Utilisez « Ajouter à la demande » sur un produit ou décrivez votre modèle ci-dessous.",

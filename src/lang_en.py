@@ -82,7 +82,7 @@ side_t="Send us your design", side_p="One photo is enough to start. Tell us:", s
 ct_h2="Tell us what you need", ct_p="We reply within 24 hours. Fastest: WhatsApp Yang.",
 f_name="Your name", f_country="Country", f_co="Company", optional="Optional", f_prod="Product", f_prod_other="Other / my own design", f_qty="Quantity per style (pcs)",
 f_msg="What do you need?", f_msg_ph="Styles, fabric, colours, sizes, logo, target price", f_send="Send inquiry",
-f_sent="Your email app should now open with the inquiry filled in. Press send there and attach any photos. If nothing opened, write to yang@tuosenapparel.com.",
+f_sent="Thank you, your inquiry has been sent. Yang will reply within 24 hours. To add photos or a tech pack, email yang@tuosenapparel.com or message us on WhatsApp.",
 foot_p="Garment factory in Jieyang, Guangdong, China. T-shirts, polos, sets and basics at volume, men's sizes S–8XL.",
 foot_h1="Company", foot_h2="Products", foot_h3="Contact",
 js=dict(add="Add to inquiry", added="Added ✓", picked="Styles in this inquiry:", none="No styles added yet. Use “Add to inquiry” on any product, or describe your own design below.",

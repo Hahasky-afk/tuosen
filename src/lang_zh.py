@@ -82,7 +82,7 @@ side_t="把設計傳給我們", side_p="一張圖片就能開始。告訴我們�
 ct_h2="告訴我們你需要什麼", ct_p="24 小時內回覆。最快：WhatsApp 找 Yang，中文英文都可以。",
 f_name="你的名字", f_country="國家/地區", f_co="公司", optional="選填", f_prod="產品", f_prod_other="其他 / 我自己的設計", f_qty="每款數量（件）",
 f_msg="你需要什麼？", f_msg_ph="款式、布料、顏色、尺碼、Logo、目標價", f_send="送出詢價",
-f_sent="你的郵件程式應該會自動打開並填好詢價內容，按送出並附上圖片即可。如果沒有打開，請寫信到 yang@tuosenapparel.com。",
+f_sent="謝謝，你的詢價已送出，Yang 會在 24 小時內回覆。要補充圖片或規格書，請寄到 yang@tuosenapparel.com 或用 WhatsApp 傳給我們。",
 foot_p="中國廣東揭陽成衣工廠。T恤、Polo衫、套裝和走量基礎款，男裝 S–8XL。",
 foot_h1="公司", foot_h2="產品", foot_h3="聯絡",
 js=dict(add="加入詢價", added="已加入 ✓", picked="這次詢價的款式：", none="還沒有加入款式。在任何產品上按「加入詢價」，或在下方描述你的設計。", names={}),
