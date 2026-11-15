@@ -17,7 +17,7 @@ EN = importlib.import_module("lang_en").L
 
 # ---- product data (language-neutral) ----
 stall = json.load(open(os.path.join(ROOT, "src/stall_items.json"), encoding="utf-8"))
-CLEAN = {"TS-01","TS-02","TS-03","TS-04","TS-05","TS-07","TS-08","TS-09","TS-11","TS-13","TS-15"}  # uniform flat-lays; TS-06/10/12/14 wait for redo
+CLEAN = {f"TS-{i:02d}" for i in range(1, 16)}  # all basics: uniform white flat-lays
 prods = [dict(c=c, img=img, k=k, t=t, z="", n=n, p=3) for c, img, k, t, n in TS if c in CLEAN]
 prods += [dict(c=s["c"], img=s["img"], k=s["k"], t=s["t"], z=s["z"], p=s["p"]) for s in stall]
 # "All" order: basics first, then round-robin across categories by priority so page one shows variety
