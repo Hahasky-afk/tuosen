@@ -297,3 +297,6 @@ html[lang^=zh]{--d:"Noto Sans TC","Anton",sans-serif;--b:"Space Grotesk","Noto S
 html[lang^=zh] h1,html[lang^=zh] h2,html[lang^=zh] h3{font-weight:700;letter-spacing:.02em;line-height:1.25}
 html[lang^=zh] .hero h1{line-height:1.2}
 @media (max-width:640px){.srch{width:100%}}
+label .opt{color:var(--mute,#8a8a8a);font-size:13px;font-weight:400;margin-left:6px}
+input[type=file]{padding:10px;cursor:pointer;color:var(--mute,#8a8a8a)}
+input[type=file]::file-selector-button{font:600 14px var(--b);background:var(--acc);color:#0b0b0b;border:0;padding:8px 14px;margin-right:12px;cursor:pointer}

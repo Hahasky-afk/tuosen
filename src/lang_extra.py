@@ -34,8 +34,8 @@ X = {
 }
 # Factory-made basics (from ky's 做过的货): code, image, categories, tags, pieces made
 TS = [("TS-01","b-ts-01",["basics","tees"],["milk","plain"],"3,000,000+"),("TS-12","b-ts-12",["basics","tees"],["plain"],"100,000+"),
-("TS-08","b-ts-08",["basics","shorts"],["cargo"],"100,000+"),("TS-02","b-ts-02",["basics","pants"],["knit","wide"],"80,000+"),
-("TS-09","b-ts-09",["basics","tees"],["sorona"],"50,000+"),("TS-05","b-ts-05",["basics","shirts"],["plain"],"40,000+"),
+("TS-08","b-ts-08",["basics","shorts"],["cargo"],"300,000+"),("TS-02","b-ts-02",["basics","pants"],["knit","wide"],"300,000+"),
+("TS-09","b-ts-09",["basics","tees"],["sorona"],"300,000+"),("TS-05","b-ts-05",["basics","shirts"],["plain"],"40,000+"),
 ("TS-03","b-ts-03",["basics","pants"],["knit","wide"],"40,000+"),("TS-06","b-ts-06",["basics","jackets"],["fleece","zip"],"30,000+"),
 ("TS-04","b-ts-04",["basics","pants"],["knit","wide"],"20,000+"),("TS-11","b-ts-11",["basics","sweats"],["plain"],"20,000+"),
 ("TS-14","b-ts-14",["basics","jackets"],["fleece"],"18,000+"),("TS-13","b-ts-13",["basics","jackets"],["zip"],"15,000+"),

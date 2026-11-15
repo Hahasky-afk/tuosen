@@ -130,12 +130,12 @@
 </div></section>
 
 <section id="record"><div class="w">
-  <div class="hd"><h2>{{rec_h2}}</h2><p class="lede">{{rec_p}}</p></div>
+  <div class="hd"><h2>{{rec_h2}}</h2></div>
   <div class="recs">
-    <article><span class="ic">01</span><b>3,000,000</b><h3>{{r1_t}}</h3><p>{{r1_p}}</p></article>
-    <article><span class="ic">02</span><b>100,000</b><h3>{{r2_t}}</h3><p>{{r2_p}}</p></article>
-    <article><span class="ic">03</span><b>80,000</b><h3>{{r3_t}}</h3><p>{{r3_p}}</p></article>
-    <article><span class="ic">04</span><b>50,000</b><h3>{{r4_t}}</h3><p>{{r4_p}}</p></article>
+    <article><span class="ic">01</span><b>3,000,000+</b><h3>{{r1_t}}</h3><p>{{r1_p}}</p></article>
+    <article><span class="ic">02</span><b>300,000+</b><h3>{{r2_t}}</h3><p>{{r2_p}}</p></article>
+    <article><span class="ic">03</span><b>300,000+</b><h3>{{r3_t}}</h3><p>{{r3_p}}</p></article>
+    <article><span class="ic">04</span><b>300,000+</b><h3>{{r4_t}}</h3><p>{{r4_p}}</p></article>
   </div>
   <div class="promise"><span class="ic">✓</span><div><b>{{prom_t}}</b><ol><li>{{prom_1}}</li><li>{{prom_2}}</li><li>{{prom_3}}</li></ol></div></div>
 </div></section>
@@ -154,19 +154,16 @@
   </div>
   <div>
     <figure><img src="/img/trim.jpg" alt="" loading="lazy"><figcaption>{{qc_cap}}</figcaption></figure>
-    <p class="honest"><b>{{honest_t}}</b> {{honest_p}}</p>
   </div>
 </div></section>
 
 <section class="pt0"><div class="w">
   <div class="hd"><h2>{{terms_h2}}</h2></div>
   <div class="terms">
-    <div><span class="k">{{t1_k}}</span><p>{{t1_p}}</p></div>
     <div><span class="k">{{t2_k}}</span><p>{{t2_p}}</p></div>
     <div><span class="k">{{t3_k}}</span><p>{{t3_p}}</p></div>
     <div><span class="k">{{t4_k}}</span><p>{{t4_p}}</p></div>
     <div><span class="k">{{t5_k}}</span><p>{{t5_p}}</p></div>
-    <div><span class="k">{{t6_k}}</span><p>{{t6_p}}</p></div>
   </div>
 </div></section>
 
@@ -227,6 +224,7 @@
     </div>
     <div class="picked" id="picked" aria-live="polite"></div>
     <label for="f-msg">{{f_msg}}<textarea id="f-msg" rows="4" placeholder="{{f_msg_ph}}"></textarea></label>
+    <label for="f-files">{{f_files}} <span class="opt">{{f_files_hint}}</span><input id="f-files" type="file" multiple accept="image/*,.pdf"></label>
     <button class="btn" type="submit">{{f_send}}</button>
     <p class="sent" id="sent" hidden>{{f_sent}}</p>
   </form>

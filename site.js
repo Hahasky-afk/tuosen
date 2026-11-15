@@ -36,8 +36,12 @@ document.getElementById('q').addEventListener('submit',e=>{
   const subj='Inquiry from '+(v('f-co')||v('f-name'))+(v('f-country')?' ('+v('f-country')+')':'');
   const mail=()=>{location.href='mailto:yang@tuosenapparel.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body+'\n\n(Attach reference photos or a tech pack to this email.)')};
   const btn=f.querySelector('button[type=submit]');if(btn)btn.disabled=true;
-  fetch('https://formsubmit.co/ajax/yang@tuosenapparel.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-    body:JSON.stringify({_subject:subj,_replyto:v('f-mail'),email:v('f-mail'),_template:'box',_captcha:'false',name:v('f-name'),country:v('f-country'),company:v('f-co'),product:v('f-prod'),quantity:v('f-qty'),styles:[...picked].join(', ')||'-',language:document.documentElement.lang,message:v('f-msg'),_honey:v('f-hp')})})
+  const fl=[...document.getElementById('f-files').files].slice(0,5);
+  if(fl.reduce((a,x)=>a+x.size,0)>10e6){alert('Max 10 MB');if(btn)btn.disabled=false;return}
+  const data={_subject:subj,_replyto:v('f-mail'),email:v('f-mail'),_template:'box',_captcha:'false',name:v('f-name'),country:v('f-country'),company:v('f-co'),product:v('f-prod'),quantity:v('f-qty'),styles:[...picked].join(', ')||'-',language:document.documentElement.lang,message:v('f-msg'),_honey:v('f-hp')};
+  let req;if(fl.length){const fd=new FormData();Object.entries(data).forEach(([k,x])=>fd.append(k,x));fl.forEach((x,i)=>fd.append('attachment'+(i?i+1:''),x));req={method:'POST',headers:{Accept:'application/json'},body:fd}}
+  else req={method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)};
+  fetch('https://formsubmit.co/ajax/yang@tuosenapparel.com',req)
   .then(r=>r.json()).then(d=>{if(String(d.success)!=='true')throw 0;document.getElementById('sent').hidden=false;f.reset()})
   .catch(mail).finally(()=>{if(btn)btn.disabled=false});
 });
