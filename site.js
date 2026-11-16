@@ -3,7 +3,7 @@ const T=window.T||{};
 const picked=new Set();
 const C=T.cats||{},TG=T.tags||{},TSN=T.ts||{};
 const grid=document.getElementById('grid'),moreBtn=document.getElementById('more'),cnt=document.getElementById('cnt'),srch=document.getElementById('srch');
-let P=[],cat='all',q='',shown=0;const STEP=20;
+let P=[],cat='all',q='',shown=0;const STEP=matchMedia('(max-width:700px)').matches?8:20;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function card(p){const [code,img,k,t,z,n]=p;const main=k[0]==='basics'?k[1]:k[0];
  const name=TSN[code]||C[main]||'';const tags=t.map(x=>TG[x]).filter(Boolean).slice(0,2);
@@ -53,4 +53,14 @@ document.querySelectorAll('.lang a').forEach(a=>a.addEventListener('click',()=>{
 const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if('IntersectionObserver' in window&&!rm){const io=new IntersectionObserver(es=>es.forEach(en=>{const v=en.target;if(en.isIntersecting){v.play().catch(()=>{})}else v.pause()}),{threshold:.35});document.querySelectorAll('video[data-auto]').forEach(v=>io.observe(v))}
 if(rm){const h=document.querySelector('.hero video');h.removeAttribute('autoplay');h.pause()}
+})();
+
+/* scroll reveal: blocks fade up as they enter the viewport (2026-11-16) */
+(()=>{if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+const st=document.createElement('style');st.textContent='.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}';document.head.appendChild(st);
+const sel='section .hd,.cat,.ways article,.film-wrap>*,.facts>div,.step,.recs>*,.promise,.qc li,.qc figure,.terms>div,.about .w>*,.ownrow figure,.faq details,.side,.ct>*,.sizes .w>*,#contact form';
+const els=[...document.querySelectorAll(sel)].filter(e=>!e.closest('.hero'));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+els.forEach(e=>{const sib=[...e.parentElement.children].filter(x=>els.includes(x));const i=Math.min(sib.indexOf(e),5);e.style.transitionDelay=(i*0.08)+'s';
+ const r=e.getBoundingClientRect();if(r.top<innerHeight)return; e.classList.add('rv');io.observe(e)});
 })();
