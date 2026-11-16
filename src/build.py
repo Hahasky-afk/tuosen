@@ -50,6 +50,8 @@ def page(code, hl, hrl, path, name, short, d):
         for i, qa in lang_audit.FAQ[code].items(): L["faq"][i] = qa
     js = dict(EN["js"]); js.update(L.get("js", {})); js.update(X[code]); js.pop("names", None)
     v = {k: x for k, x in L.items() if isinstance(x, str)}
+    import hashlib as _h
+    v["asset_v"] = _h.md5((open(os.path.join(ROOT, "site.css"), "rb").read() + open(os.path.join(ROOT, "site.js"), "rb").read())).hexdigest()[:8]
     v.update(P[code])
     v.update(lang=hl, dir=d, path=path, lang_short=short)
     v["ticker"] = "".join(f"<span>{html.escape(t)}</span>" for t in L["ticker"])
