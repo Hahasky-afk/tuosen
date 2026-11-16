@@ -352,3 +352,8 @@ input[type=file]::file-selector-button{font:600 14px var(--b);background:var(--a
 .item.own h3 i{font-style:normal}
 .item.own p{margin-top:8px;font-size:14px;color:#0B0B0C}
 .item.own:hover:after{border-color:#0B0B0C55}
+.hstats small.hsn{display:block;margin-top:4px;font-size:12px;line-height:1.35;color:var(--mut);font-weight:400}
+#products .hd .ttl{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ownbtn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;background:var(--acc);color:#0B0B0C;font:700 13px/1 var(--b);letter-spacing:.04em;text-decoration:none;border:1px solid var(--acc);transition:background .2s,box-shadow .2s,transform .2s}
+.ownbtn i{font-style:normal}
+.ownbtn:hover{background:#fff;border-color:#fff;transform:translateY(-1px);box-shadow:0 8px 24px -8px color-mix(in srgb,var(--acc) 70%,transparent)}

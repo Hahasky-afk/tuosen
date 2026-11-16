@@ -368,3 +368,73 @@ def post(L, code):
     # drop the sentence about FOB pricing
     parts = re.split(r"(?<=[.。])\s*", p)
     L["about_p2"] = " ".join(x for x in parts if x and "FOB" not in x) if code != "zh" else "".join(x for x in parts if x and "FOB" not in x)
+
+# 2026-11-16 (ky, round 3): new hero, softer claims, consistent data across languages
+_R3 = {
+"en": dict(hero_h1a="Focused on bulk garment production,", hero_h1b="steady supply for wholesalers and brands worldwide.",
+  hero_p="Our production team has 10+ years of garment manufacturing experience. We make T-shirts, polos, sets, sweatshirts and more in bulk for importers, wholesalers and apparel brands, with development from your sample, private label and long-term reorders. Years in China's plus-size market have given us proven big-size patterns and bulk experience, and we adjust sizing to US and European standards and your requirements.",
+  hs4_k="Bulk lead time", hs4_v="Repeat orders about 7–14 working days", hs4_n="New developments: lead time confirmed with specifications", s3_d="Reorders 7–14 days",
+  r2_p="Inspected against the confirmed size specification to keep every batch consistent.",
+  prom_3="After a quality issue is verified, we resolve it as agreed in your order",
+  about_p1="Tuosen Apparel (揭阳拓森服饰) runs two garment factories in Jieyang, eastern Guangdong. Our production team has more than 10 years of experience making garments in volume. You work directly with our factory production team, with fewer layers in between.",
+  sizes_p="Plus sizes are routine for us. Many of our styles run to 8XL, so grading, fabric use and packing for big sizes are part of normal production. Detailed garment measurements and size specs are available for review before production.",
+  meta_title="Tuosen Apparel | Garment factory in China. Wholesale & private label, selected styles up to 8XL"),
+"es": dict(hero_h1a="Especialistas en producción de ropa en volumen,", hero_h1b="suministro estable para mayoristas y marcas de todo el mundo.",
+  hero_p="Nuestro equipo de producción tiene más de 10 años de experiencia fabricando ropa. Producimos en volumen camisetas, polos, conjuntos, sudaderas y más para importadores, mayoristas y marcas de ropa, con desarrollo a partir de tu muestra, marca propia y pedidos repetidos a largo plazo. Años en el mercado chino de tallas grandes nos dan patrones de tallas grandes probados y experiencia en volumen, y ajustamos las tallas a los estándares de EE. UU. y Europa y a tus requisitos.",
+  hs4_k="Plazo de producción", hs4_v="Pedidos repetidos: unos 7–14 días hábiles", hs4_n="Nuevos desarrollos: plazo según especificaciones", s3_d="Repetidos 7–14 días",
+  r2_p="Inspeccionado según la especificación de tallas confirmada para mantener cada lote uniforme.",
+  prom_3="Tras verificar un problema de calidad, lo resolvemos según lo acordado en tu pedido",
+  about_p1="Tuosen Apparel (揭阳拓森服饰) opera dos fábricas de ropa en Jieyang, en el este de Guangdong. Nuestro equipo de producción tiene más de 10 años de experiencia fabricando ropa en volumen. Trabajas directamente con el equipo de producción de la fábrica, sin intermediarios innecesarios.",
+  sizes_p="Las tallas grandes son algo habitual para nosotros. Muchos de nuestros modelos llegan a 8XL, así que el escalado, el consumo de tela y el embalaje de tallas grandes forman parte de la producción normal. Las medidas detalladas de cada prenda están disponibles para revisión antes de producir.",
+  meta_title="Tuosen Apparel | Fábrica de ropa en China. Mayoreo y marca propia, modelos seleccionados hasta 8XL"),
+"pt": dict(hero_h1a="Especialistas em produção de roupas em volume,", hero_h1b="fornecimento estável para atacadistas e marcas do mundo todo.",
+  hero_p="Nossa equipe de produção tem mais de 10 anos de experiência em confecção. Produzimos em volume camisetas, polos, conjuntos, moletons e mais para importadores, atacadistas e marcas de roupa, com desenvolvimento a partir da sua amostra, marca própria e recompras de longo prazo. Anos no mercado chinês de plus size nos deram modelagens grandes testadas e experiência em volume, e ajustamos a grade aos padrões dos EUA e da Europa e às suas necessidades.",
+  hs4_k="Prazo de produção", hs4_v="Recompras: cerca de 7–14 dias úteis", hs4_n="Novos desenvolvimentos: prazo conforme especificações", s3_d="Recompras 7–14 dias",
+  r2_p="Inspecionado conforme a especificação de medidas confirmada, para manter cada lote uniforme.",
+  prom_3="Após verificar um problema de qualidade, resolvemos conforme o combinado no seu pedido",
+  about_p1="A Tuosen Apparel (揭阳拓森服饰) opera duas fábricas de roupas em Jieyang, no leste de Guangdong. Nossa equipe de produção tem mais de 10 anos de experiência fabricando roupas em volume. Você fala diretamente com a equipe de produção da fábrica, com menos intermediários.",
+  sizes_p="Tamanhos grandes são rotina para nós. Muitos dos nossos modelos vão até 8XL, então a gradação, o consumo de tecido e a embalagem de tamanhos grandes fazem parte da produção normal. Medidas detalhadas de cada peça ficam disponíveis para revisão antes da produção.",
+  meta_title="Tuosen Apparel | Fábrica de roupas na China. Atacado e marca própria, modelos selecionados até 8XL"),
+"fr": dict(hero_h1a="Spécialistes de la production textile en volume,", hero_h1b="un approvisionnement fiable pour grossistes et marques du monde entier.",
+  hero_p="Notre équipe de production a plus de 10 ans d'expérience dans la confection. Nous produisons en volume T-shirts, polos, ensembles, sweats et plus encore pour importateurs, grossistes et marques, avec développement d'après votre échantillon, marque propre et réassorts sur le long terme. Des années sur le marché chinois des grandes tailles nous ont donné des patronages grandes tailles éprouvés et une vraie expérience du volume, et nous adaptons les tailles aux normes américaines et européennes et à vos besoins.",
+  hs4_k="Délai de production", hs4_v="Réassorts : environ 7–14 jours ouvrés", hs4_n="Nouveaux modèles : délai confirmé selon les spécifications", s3_d="Réassorts 7–14 jours",
+  r2_p="Contrôlé selon la spécification de tailles validée, pour garder chaque lot homogène.",
+  prom_3="Après vérification d'un défaut de qualité, nous le traitons comme convenu dans votre commande",
+  about_p1="Tuosen Apparel (揭阳拓森服饰) exploite deux usines de vêtements à Jieyang, dans l'est du Guangdong. Notre équipe de production a plus de 10 ans d'expérience dans la fabrication en volume. Vous travaillez directement avec l'équipe de production de l'usine, avec moins d'intermédiaires.",
+  sizes_p="Les grandes tailles font partie de notre quotidien. Beaucoup de nos modèles vont jusqu'au 8XL, donc gradation, consommation de tissu et emballage des grandes tailles relèvent de la production normale. Les mesures détaillées de chaque vêtement sont disponibles avant production.",
+  meta_title="Tuosen Apparel | Usine de vêtements en Chine. Gros et marque propre, certains modèles jusqu'au 8XL"),
+"ar": dict(hero_h1a="متخصصون في إنتاج الملابس بالجملة،", hero_h1b="توريد مستقر لتجار الجملة والعلامات التجارية حول العالم.",
+  hero_p="يمتلك فريق الإنتاج لدينا أكثر من 10 سنوات من الخبرة في تصنيع الملابس. ننتج بالجملة التيشيرتات والبولو والأطقم والسويت شيرت وغيرها للمستوردين وتجار الجملة والعلامات التجارية، مع التطوير من عينتك، والعلامة الخاصة، وإعادة الطلب على المدى الطويل. سنوات من العمل في سوق المقاسات الكبيرة في الصين منحتنا قوالب مقاسات كبيرة مجرَّبة وخبرة في الإنتاج الكمي، ونعدّل المقاسات حسب معايير أمريكا وأوروبا ومتطلباتك.",
+  hs4_k="مدة الإنتاج", hs4_v="إعادة الطلب: نحو 7–14 يوم عمل", hs4_n="الموديلات الجديدة: تُحدد المدة حسب المواصفات", s3_d="إعادة الطلب 7–14 يومًا",
+  r2_p="يُفحص حسب مواصفات المقاسات المعتمدة للحفاظ على تجانس كل دفعة.",
+  prom_3="بعد التحقق من مشكلة الجودة، نعالجها وفق ما اتُّفق عليه في طلبك",
+  about_p1="تدير Tuosen Apparel (揭阳拓森服饰) مصنعين للملابس في جيه يانغ، شرق قوانغدونغ. يمتلك فريق الإنتاج لدينا أكثر من 10 سنوات من الخبرة في تصنيع الملابس بكميات كبيرة. تتعامل مباشرة مع فريق الإنتاج في المصنع، بوسطاء أقل.",
+  sizes_p="المقاسات الكبيرة جزء من عملنا اليومي. كثير من موديلاتنا يصل إلى 8XL، لذا فإن تدريج المقاسات واستهلاك القماش والتغليف للمقاسات الكبيرة جزء من الإنتاج العادي. القياسات التفصيلية لكل قطعة متاحة للمراجعة قبل الإنتاج.",
+  meta_title="Tuosen Apparel | مصنع ملابس في الصين. جملة وعلامة خاصة، موديلات مختارة حتى 8XL"),
+"zh": dict(hero_h1a="專注服裝批量生產，", hero_h1b="為全球批發商與品牌提供穩定供應。",
+  hero_p="生產團隊擁有 10 年以上服裝製造經驗，為海外進口商、批發商及服裝品牌提供 T 恤、Polo 衫、套裝、衛衣等產品的批量生產與客製服務，支援來樣開發、品牌貼牌及長期返單。團隊長期深耕中國大碼服裝市場，擁有成熟的大尺碼版型與量產經驗，可根據歐美市場的尺碼標準和客戶需求靈活調整，滿足不同市場的採購需求。",
+  hs4_k="大貨交期", hs4_v="常規返單約 7–14 個工作日", hs4_n="新開發訂單依規格確認交期", s3_d="返單 7–14 天",
+  r2_p="按照確認的尺碼標準進行檢驗，控制批次品質一致性。",
+  prom_3="品質問題經核實後，依訂單約定提供相應處理方案",
+  about_p1="拓森服飾（Tuosen Apparel）在廣東揭陽經營兩家服裝工廠。我們的生產團隊有十多年大貨生產經驗，直接對接工廠生產團隊，減少中間溝通環節。",
+  sizes_p="大碼對我們是常規生產。我們很多款式做到 8XL，大碼的放碼、用料和包裝都是日常流程。生產前可提供詳細成衣尺寸和尺碼表供你確認。",
+  meta_title="Tuosen Apparel 拓森服飾 | 中國服裝工廠，批發與貼牌，部分款式最大 8XL"),
+}
+for _c in A: A[_c].update(_R3[_c])
+_FAQ3 = {
+"en": [(2, "How long do samples and bulk take?", "Samples take from 3 working days for selected styles. Repeat orders typically take about 7–14 working days. For new developments we confirm the lead time once the specifications are agreed."),
+       (3, "Do you make plus sizes?", "Yes. Selected styles go up to 8XL, and we adjust sizing to US and European standards. Detailed garment measurements are available for review before production.")],
+"es": [(2, "¿Cuánto tardan las muestras y la producción?", "Las muestras tardan desde 3 días hábiles en modelos seleccionados. Los pedidos repetidos suelen tardar unos 7–14 días hábiles. En nuevos desarrollos confirmamos el plazo una vez acordadas las especificaciones."),
+       (3, "¿Hacen tallas grandes?", "Sí. Algunos modelos llegan a 8XL y ajustamos las tallas a los estándares de EE. UU. y Europa. Las medidas detalladas están disponibles antes de producir.")],
+"pt": [(2, "Quanto tempo levam amostra e produção?", "As amostras levam a partir de 3 dias úteis em modelos selecionados. Recompras costumam levar cerca de 7–14 dias úteis. Para novos desenvolvimentos, confirmamos o prazo depois de acertar as especificações."),
+       (3, "Vocês fazem plus size?", "Sim. Alguns modelos vão até 8XL e ajustamos a grade aos padrões dos EUA e da Europa. As medidas detalhadas ficam disponíveis antes da produção.")],
+"fr": [(2, "Quels délais pour l'échantillon et la production ?", "Échantillons à partir de 3 jours ouvrés sur une sélection de modèles. Les réassorts prennent en général environ 7–14 jours ouvrés. Pour un nouveau développement, nous confirmons le délai une fois les spécifications validées."),
+       (3, "Faites-vous les grandes tailles ?", "Oui. Certains modèles vont jusqu'au 8XL et nous adaptons les tailles aux normes américaines et européennes. Les mesures détaillées sont disponibles avant production.")],
+"ar": [(2, "كم تستغرق العينة والإنتاج؟", "تبدأ العينات من 3 أيام عمل لموديلات مختارة. تستغرق إعادة الطلب عادةً نحو 7–14 يوم عمل. وفي الموديلات الجديدة نؤكد المدة بعد الاتفاق على المواصفات."),
+       (3, "هل تصنعون مقاسات كبيرة؟", "نعم. بعض الموديلات تصل إلى 8XL، ونعدّل المقاسات حسب معايير أمريكا وأوروبا. القياسات التفصيلية متاحة قبل الإنتاج.")],
+"zh": [(2, "打樣和大貨要多久？", "部分款式打樣 3 個工作日起。常規返單約 7–14 個工作日，新開發訂單依規格確認交期。"),
+       (3, "可以做大碼嗎？", "可以。部分款式做到 8XL，可按歐美尺碼標準調整。生產前可提供詳細成衣尺寸供你確認。")],
+}
+def post2(L, code):
+    for i, q, a in _FAQ3[code]:
+        if i < len(L["faq"]): L["faq"][i] = (q, a)

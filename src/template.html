@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{lang}}" dir="{{dir}}">
+<html lang="{{lang}}" dir="{{dir}}" data-pv="{{prod_v}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -53,7 +53,7 @@
     <div><span>{{hs1_k}}</span><b>{{hs1_v}}</b></div>
     <div><span>{{hs2_k}}</span><b>{{hs2_v}}</b></div>
     <div><span>{{hs3_k}}</span><b>{{hs3_v}}</b></div>
-    <div><span>{{hs4_k}}</span><b>{{hs4_v}}</b></div>
+    <div><span>{{hs4_k}}</span><b>{{hs4_v}}</b><small class="hsn">{{hs4_n}}</small></div>
   </div>
 </section>
 
@@ -65,13 +65,12 @@
 </div>
 
 <section id="products"><div class="w">
-  <div class="hd"><div><span class="k">{{prod_k}}</span><h2>{{cat_h2}}</h2></div>
+  <div class="hd"><div><span class="k">{{prod_k}}</span><div class="ttl"><h2>{{cat_h2}}</h2><a class="ownbtn" href="#contact" data-msg="photo" title="{{c_own_p}}">{{c_own}} <i>→</i></a></div></div>
     <label class="srch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="srch" type="search" placeholder="{{search_ph}}" aria-label="{{search_ph}}"></label>
   </div>
   <div class="filters" role="group" aria-label="{{filter_label}}">{{filter_btns}}</div>
   <p class="cnt" id="cnt" aria-live="polite"></p>
   <div class="grid" id="grid"></div>
-  <template id="owncard"><a class="item own" href="#contact"><div><h3>{{c_own}} <i>→</i></h3><p>{{c_own_p}}</p></div></a></template>
   <div class="more"><button type="button" class="btn o" id="more">{{more_btn}}</button></div>
   <p class="pnote">{{prod_note2}}</p>
 </div></section>
