@@ -331,3 +331,6 @@ footer{background:var(--panel2)}
 .hero,.film,.cat{color:var(--ink)}
 .hero{--on:#0B0B0C}
 .top .btn{color:#fff}
+
+.ownrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:36px}.ownrow img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}.ownrow figcaption{font-size:13px;color:var(--mut);margin-top:8px}
+@media (max-width:700px){.ownrow{grid-template-columns:1fr}}
