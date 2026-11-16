@@ -334,3 +334,8 @@ footer{background:var(--panel2)}
 
 .ownrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:36px}.ownrow img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}.ownrow figcaption{font-size:13px;color:var(--mut);margin-top:8px}
 @media (max-width:700px){.ownrow{grid-template-columns:1fr}}
+
+/* terms: 4 equal boxes (ky 11-16) */
+.terms{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.terms{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.terms{grid-template-columns:1fr}}

@@ -312,3 +312,8 @@ input[type=file]::file-selector-button{font:600 14px var(--b);background:var(--a
   .step p,.recs p,.lede,.wb>p,.best{font-size:15px}
   label{font-size:14.5px}
 }
+
+/* terms: 4 equal boxes (ky 11-16) */
+.terms{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.terms{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.terms{grid-template-columns:1fr}}

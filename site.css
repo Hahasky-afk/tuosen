@@ -300,3 +300,8 @@ html[lang^=zh] .hero h1{line-height:1.2}
 label .opt{color:var(--mute,#8a8a8a);font-size:13px;font-weight:400;margin-left:6px}
 input[type=file]{padding:10px;cursor:pointer;color:var(--mute,#8a8a8a)}
 input[type=file]::file-selector-button{font:600 14px var(--b);background:var(--acc);color:#0b0b0b;border:0;padding:8px 14px;margin-right:12px;cursor:pointer}
+
+/* terms: 4 equal boxes (ky 11-16) */
+.terms{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.terms{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.terms{grid-template-columns:1fr}}
