@@ -320,3 +320,25 @@ input[type=file]::file-selector-button{font:600 14px var(--b);background:var(--a
 
 /* bigger tap targets for text links (2026-11-16) */
 .wb a,.foot a,footer a,.ct a,.side a{display:inline-block;padding:8px 0;min-height:36px}
+
+/* hover polish 11-16 */
+.top .btn{min-height:40px;padding:0 22px;font-size:12px;letter-spacing:.1em}
+.btn{transition:background .2s,border-color .2s,color .2s,box-shadow .25s,transform .2s}
+.btn:hover{box-shadow:0 8px 24px -8px color-mix(in srgb,var(--acc) 70%,transparent);transform:translateY(-1px)}
+.item{position:relative;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}.item .ph{overflow:hidden}
+.item:after{content:"";position:absolute;inset:0;border:1px solid transparent;pointer-events:none;z-index:3;transition:border-color .3s}.item:hover:after{border-color:color-mix(in srgb,var(--acc) 60%,transparent)}
+.item img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.item:hover{transform:translateY(-4px);box-shadow:0 16px 36px -12px #0008}
+.item:hover img{transform:scale(1.06)}
+.add{transition:background .2s,border-color .2s,color .2s,box-shadow .2s}
+.add:hover,.add:focus-visible{background:var(--acc);border-color:var(--acc);color:var(--on,#0B0B0C);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 28%,transparent)}
+.cat{transition:transform .3s,box-shadow .3s}
+.cat:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px #0009}
+.step,.recs article,.ways article,.terms>div{transition:transform .3s,border-color .3s,box-shadow .3s}
+.step:hover,.recs article:hover,.ways article:hover,.terms>div:hover{transform:translateY(-3px);box-shadow:0 14px 32px -14px #0007}
+.ways article:hover,.terms>div:hover{border-color:var(--acc)}
+.faq summary{transition:color .2s}.faq summary:hover{color:var(--acc)}
+.quick a{transition:border-color .2s,color .2s,background .2s}
+.fg .addr{max-width:260px;line-height:1.5}
+@media (hover:none){.item:hover,.cat:hover,.step:hover,.recs article:hover,.ways article:hover,.terms>div:hover,.btn:hover{transform:none}.item:hover img{transform:none}}
+@media (prefers-reduced-motion:reduce){.item,.cat,.step,.btn,.item img{transition:none!important}}

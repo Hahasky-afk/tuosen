@@ -326,3 +326,9 @@ for _c in A:
     A[_c]["hero_h1a"], A[_c]["hero_h1b"] = _H[_c]
     A[_c]["s5_p"] = _S5[_c]
     A[_c]["meta_desc"] = _re.sub(r"[,，،]\s*FOB[^.。]*", "", A[_c]["meta_desc"])
+
+# 2026-11-16 ky: full factory address on contact + footer
+_ST = "No. 14, Lane 4, Dalujiao, Dongwei, Jiedong District, "
+for _c in A:
+    A[_c]["v_loc_v"] = ("中國廣東省揭陽市揭東區東圍大路腳4巷14號" if _c == "zh" else
+                       "No. 14, Lane 4, Dalujiao, Dongwei, Jiedong District, Jieyang, Guangdong, " + ("Chine" if _c == "fr" else "China"))
