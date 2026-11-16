@@ -25,7 +25,7 @@ first = [p for p in prods if p["p"] == 3]
 rest = sorted([p for p in prods if p["p"] < 3], key=lambda p: -p["p"])
 buckets = {}
 for p in rest: buckets.setdefault(p["k"][0], []).append(p)
-order = ["tees", "sets", "polos", "pants", "sweats", "shirts", "jackets", "knit", "shorts"]
+order = ["tees", "sets", "polos", "pants", "sweats", "shirts", "jackets", "knit", "shorts", "women"]
 rr = []
 while any(buckets.values()):
     for c in order:
@@ -37,7 +37,7 @@ counts = {c: sum(c in p["k"] for p in prods) for c in CATS}; counts["all"] = len
 CARD = [("basics", "b-ts-01", True), ("sets", "p/r046", True), ("tees", "p/r078", False), ("polos", "p/r155", False),
         ("pants", "s/" + next(s["i"] for s in stall if s["c"] == "CK41"), False), ("sweats", "p/r104", False),
         ("knit", "s/" + next(s["i"] for s in stall if s["c"] == "ZY02"), False), ("shirts", "p/r134", False),
-        ("jackets", next(s["img"] for s in stall if "jackets" in s["k"]), False)]
+        ("jackets", next(s["img"] for s in stall if "jackets" in s["k"]), False), ("shorts", "s2/943", False), ("women", "s2/1437", False)]
 
 def page(code, hl, hrl, path, name, short, d):
     L = dict(EN)
@@ -61,7 +61,7 @@ def page(code, hl, hrl, path, name, short, d):
     for c, img, big in CARD:
         if not counts.get(c): continue
         cards.append(f'<a class="cat{" big" if big else ""}{" basics" if c == "basics" else ""}" href="#products" data-c="{c}"><img src="/img/{img}.jpg" alt="" loading="lazy">'
-                     f'<div><h3>{cl[c]} <i>→</i></h3><p>{ns.format(n=counts[c])} · {X[code]["proven"] if c == "basics" else "M–8XL"}</p></div>'
+                     f'<div><h3>{cl[c]} <i>→</i></h3><p>{ns.format(n=counts[c])} · {X[code]["proven"] if c == "basics" else {"women": "M–2XL", "shorts": "S–5XL"}.get(c, "M–8XL")}</p></div>'
                      + (f'<em>{v["cat_size"]}</em>' if big and c != "basics" else "") + '</a>')
     cards.append(f'<a class="cat own" href="#contact"><div><h3>{v["c_own"]} <i>→</i></h3><p>{v["c_own_p"]}</p></div></a>')
     v["cat_cards"] = "".join(cards)
