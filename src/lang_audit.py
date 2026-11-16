@@ -243,3 +243,62 @@ FAQ["zh"] = {
 3: ("做大碼嗎？","做。部分款式男裝最大 8XL，我們大部分款式從 S 或 M 做到 8XL。生產前可提供詳細成衣尺寸。"),
 5: ("網站上為什麼沒有價格？","價格取決於面料、克重、工藝和數量。發圖片和數量給我們，24 小時內回覆，規格明確後確認單件 FOB 價。"),
 }
+
+# ---- 2026-11-16 second review: lead with who we are, MOQ off the first screen, no "new company / made for exporters" lines
+R2 = {
+"en": dict(
+ meta_title="Tuosen Apparel | Garment factory in China. Wholesale & private label, men's sizes up to 8XL",
+ ticker=["Direct manufacturing","2,000+ styles made","Men's sizes up to 8XL","Own wholesale & online label","Samples from 3 working days","FOB Shantou / Shenzhen","Reply within 24 hours"],
+ hero_p="T-shirts, polos, sets, sweatshirts and shirts for importers, wholesalers and private labels. We also sell our own styles wholesale and online, so we know what sells. Men's sizes up to 8XL on selected styles.",
+ hs2_k="Styles made", hs2_v="2,000+ for our own label",
+ cat_h2="What we make", cat_meta="Wholesale & private label · up to 8XL",
+ f4_k="Styles made for our own label", c_shirts="Shirts",
+ about_p1="Tuosen Apparel (揭阳拓森服饰) runs two garment factories in Jieyang, eastern Guangdong. Our production team has more than 10 years of experience making garments in volume, and you deal directly with the people who cut and sew your order.",
+ about_p2="We also run our own wholesale and online apparel label, Chaoshanku (潮衫酷). It gives our team first-hand experience with repeat orders, consistent sizing and what actually sells. Our base in Jieyang lets us offer competitive FOB pricing, set by fabric, workmanship, quantity and packing."),
+"es": dict(
+ meta_title="Tuosen Apparel | Fábrica de ropa en China. Mayoreo y marca propia, tallas hombre hasta 8XL",
+ ticker=["Fabricación directa","Más de 2,000 modelos hechos","Tallas hombre hasta 8XL","Marca propia mayorista y online","Muestras desde 3 días hábiles","FOB Shantou / Shenzhen","Respuesta en 24 horas"],
+ hero_p="Camisetas, polos, conjuntos, sudaderas y camisas para importadores, mayoristas y marcas propias. También vendemos nuestros propios modelos al por mayor y en línea, así que sabemos lo que se vende. Tallas de hombre hasta 8XL en modelos seleccionados.",
+ hs2_k="Modelos hechos", hs2_v="Más de 2,000 para nuestra marca",
+ cat_h2="Lo que fabricamos", cat_meta="Mayoreo y marca propia · hasta 8XL",
+ f4_k="Modelos hechos para nuestra marca", c_shirts="Camisas",
+ about_p1="Tuosen Apparel (揭阳拓森服饰) opera dos fábricas de ropa en Jieyang, en el este de Guangdong. Nuestro equipo de producción tiene más de 10 años de experiencia fabricando ropa en volumen, y tratas directamente con quienes cortan y cosen tu pedido.",
+ about_p2="También tenemos nuestra propia marca mayorista y online, Chaoshanku (潮衫酷). Le da a nuestro equipo experiencia directa con pedidos repetidos, tallaje constante y lo que realmente se vende. Estar en Jieyang nos permite ofrecer precios FOB competitivos, según tela, confección, cantidad y empaque."),
+"pt": dict(
+ meta_title="Tuosen Apparel | Fábrica de roupas na China. Atacado e marca própria, tamanhos masculinos até 8XL",
+ ticker=["Fabricação direta","Mais de 2.000 modelos feitos","Tamanhos masculinos até 8XL","Marca própria no atacado e online","Amostras a partir de 3 dias úteis","FOB Shantou / Shenzhen","Resposta em 24 horas"],
+ hero_p="Camisetas, polos, conjuntos, moletons e camisas para importadores, atacadistas e marcas próprias. Também vendemos nossos próprios modelos no atacado e online, então sabemos o que vende. Tamanhos masculinos até 8XL em modelos selecionados.",
+ hs2_k="Modelos feitos", hs2_v="Mais de 2.000 para nossa marca",
+ cat_h2="O que fabricamos", cat_meta="Atacado e marca própria · até 8XL",
+ f4_k="Modelos feitos para nossa marca", c_shirts="Camisas",
+ about_p1="A Tuosen Apparel (揭阳拓森服饰) opera duas fábricas de roupas em Jieyang, no leste de Guangdong. Nossa equipe de produção tem mais de 10 anos de experiência fabricando roupas em volume, e você trata diretamente com quem corta e costura o seu pedido.",
+ about_p2="Também temos nossa própria marca de atacado e online, Chaoshanku (潮衫酷). Isso dá à nossa equipe experiência direta com pedidos repetidos, tamanhos consistentes e o que realmente vende. Estar em Jieyang nos permite oferecer preços FOB competitivos, conforme tecido, confecção, quantidade e embalagem."),
+"fr": dict(
+ meta_title="Tuosen Apparel | Usine de vêtements en Chine. Gros et marque propre, tailles homme jusqu'au 8XL",
+ ticker=["Fabrication directe","Plus de 2 000 modèles fabriqués","Tailles homme jusqu'au 8XL","Marque propre en gros et en ligne","Échantillons dès 3 jours ouvrés","FOB Shantou / Shenzhen","Réponse sous 24 heures"],
+ hero_p="T-shirts, polos, ensembles, sweats et chemises pour importateurs, grossistes et marques propres. Nous vendons aussi nos propres modèles en gros et en ligne : nous savons ce qui se vend. Tailles homme jusqu'au 8XL sur une sélection de modèles.",
+ hs2_k="Modèles fabriqués", hs2_v="Plus de 2 000 pour notre marque",
+ cat_h2="Ce que nous fabriquons", cat_meta="Gros et marque propre · jusqu'au 8XL",
+ f4_k="Modèles fabriqués pour notre marque", c_shirts="Chemises",
+ about_p1="Tuosen Apparel (揭阳拓森服饰) exploite deux usines de vêtements à Jieyang, dans l'est du Guangdong. Notre équipe de production a plus de 10 ans d'expérience dans la fabrication en volume, et vous traitez directement avec ceux qui coupent et cousent votre commande.",
+ about_p2="Nous exploitons aussi notre propre marque de gros et en ligne, Chaoshanku (潮衫酷). Notre équipe y acquiert une expérience directe des réassorts, de la régularité des tailles et de ce qui se vend vraiment. Notre implantation à Jieyang nous permet des prix FOB compétitifs, selon tissu, façon, quantité et emballage."),
+"ar": dict(
+ meta_title="Tuosen Apparel | مصنع ملابس في الصين. جملة وعلامة خاصة، مقاسات رجالية حتى 8XL",
+ ticker=["تصنيع مباشر","أكثر من 2,000 موديل","مقاسات رجالية حتى 8XL","علامتنا للجملة والبيع أونلاين","عينات من 3 أيام عمل","FOB شانتو / شنتشن","رد خلال 24 ساعة"],
+ hero_p="تيشيرتات وبولو وأطقم وسويت شيرت وقمصان للمستوردين وتجار الجملة والعلامات الخاصة. نبيع أيضًا موديلاتنا بالجملة وعبر الإنترنت، لذلك نعرف ما الذي يُباع. مقاسات رجالية حتى 8XL لموديلات مختارة.",
+ hs2_k="موديلات صنعناها", hs2_v="أكثر من 2,000 لعلامتنا",
+ cat_h2="ماذا نصنع", cat_meta="جملة وعلامة خاصة · حتى 8XL",
+ f4_k="موديلات صنعناها لعلامتنا", c_shirts="قمصان",
+ about_p1="تدير Tuosen Apparel (揭阳拓森服饰) مصنعين للملابس في جيه يانغ، شرق قوانغدونغ. يمتلك فريق الإنتاج لدينا أكثر من 10 سنوات من الخبرة في تصنيع الملابس بكميات كبيرة، وتتعامل مباشرة مع من يقصّون ويخيطون طلبك.",
+ about_p2="لدينا أيضًا علامتنا الخاصة للجملة والبيع عبر الإنترنت، Chaoshanku (潮衫酷). تمنح فريقنا خبرة مباشرة في الطلبات المتكررة وثبات المقاسات وما يُباع فعلًا. وجودنا في جيه يانغ يتيح لنا أسعار FOB تنافسية، حسب القماش والتشغيل والكمية والتعبئة."),
+"zh": dict(
+ meta_title="Tuosen Apparel 拓森服飾 | 中國服裝工廠，批發與貼牌，男裝最大 8XL",
+ ticker=["工廠直接生產","已做 2,000+ 款","男裝最大 8XL","自有批發與電商品牌","打樣 3 個工作日起","FOB 汕頭 / 深圳","24 小時內回覆"],
+ hero_p="為進口商、批發商和自有品牌生產 T 恤、Polo、套裝、衛衣和襯衫。我們自己也在做批發和電商，知道什麼款好賣。部分款式男裝最大 8XL。",
+ hs2_k="已做款式", hs2_v="自有品牌 2,000+ 款",
+ cat_h2="我們生產什麼", cat_meta="批發與貼牌 · 最大 8XL",
+ f4_k="自有品牌已做款式", c_shirts="襯衫",
+ about_p1="拓森服飾（Tuosen Apparel）在廣東揭陽經營兩家服裝工廠。我們的生產團隊有十多年大貨生產經驗，你直接對接裁剪和車縫你訂單的人。",
+ about_p2="我們也經營自有批發和電商品牌「潮衫酷」，團隊對返單、尺碼穩定和什麼款真正好賣有第一手經驗。工廠在揭陽，能提供有競爭力的 FOB 報價，價格按面料、做工、數量和包裝而定。"),
+}
+for _c, _d in R2.items(): A[_c].update(_d)
