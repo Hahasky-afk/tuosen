@@ -43,6 +43,11 @@ def page(code, hl, hrl, path, name, short, d):
     L = dict(EN)
     if code != "en":
         L.update(importlib.import_module("lang_" + code).L)
+    import lang_audit
+    L.update(lang_audit.A.get(code, {}))
+    if code in lang_audit.FAQ:
+        L["faq"] = list(L["faq"])
+        for i, qa in lang_audit.FAQ[code].items(): L["faq"][i] = qa
     js = dict(EN["js"]); js.update(L.get("js", {})); js.update(X[code]); js.pop("names", None)
     v = {k: x for k, x in L.items() if isinstance(x, str)}
     v.update(P[code])

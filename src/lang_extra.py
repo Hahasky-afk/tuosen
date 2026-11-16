@@ -4,7 +4,7 @@ X = {
 "en": dict(
  cats=dict(all="All",basics="Plain basics",tees="T-shirts",polos="Polos",sets="Sets",pants="Pants",shorts="Shorts",sweats="Sweatshirts & hoodies",knit="Knitwear",shirts="Shirts",jackets="Jackets"),
  tags=dict(milk="Milk silk",ice="Ice silk, cool touch",sorona="Sorona",cotton="100% cotton",waffle="Waffle knit",heavy="Heavyweight",knit="Cotton-feel knit",fleece="Fleece-lined",air="Air-layer knit",linen="Linen blend",cord="Corduroy",washed="Washed",thermal="Thermal",pique="Piqué",cargo="Cargo",wide="Wide leg",barrel="Barrel leg",zip="Zip",embroid="Embroidered",jacquard="Jacquard",gradient="Gradient",layered="Layered look",plain="Plain",print="Printed"),
- shipped="pcs made", search="Search style no.", more="Show more", count="{n} styles", proven="Bulk proven",
+ shipped="pcs made", search="Search style no.", more="Show more", count="{n} styles", proven="Proven in bulk",
  ts={"TS-01":"Oversized milk-silk T-shirt","TS-02":"Wide-leg knit sweatpants","TS-03":"Pleated wide-leg sweatpants","TS-04":"Wide-leg lounge sweatpants","TS-05":"Men's long-sleeve shirt","TS-06":"Fleece half-zip pullover","TS-07":"Barrel-leg cargo knit pants","TS-08":"Chino work shorts","TS-09":"Sorona flatlock long-sleeve tee","TS-10":"Fitted tank top","TS-11":"Pullover hoodie","TS-12":"Sleeveless muscle tank","TS-13":"Women's plush zip jacket","TS-14":"Long fleece-lined hooded coat","TS-15":"Sherpa zip jacket"}),
 "es": dict(
  cats=dict(all="Todo",basics="Básicos lisos",tees="Camisetas",polos="Polos",sets="Conjuntos",pants="Pantalones",shorts="Shorts",sweats="Sudaderas y hoodies",knit="Punto",shirts="Camisas",jackets="Chaquetas"),
