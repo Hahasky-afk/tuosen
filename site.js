@@ -11,7 +11,7 @@ function card(p){const [code,img,k,t,z,n]=p;const main=k[0]==='basics'?k[1]:k[0]
 <div class="tx"><div class="row"><span>${esc(code)}</span><span class="sz">${esc(z)}</span></div><h3>${esc(name)}</h3>${tags.length?`<p class="tg">${tags.map(esc).join(' · ')}</p>`:''}
 <button type="button" class="add" data-code="${esc(code)}" aria-pressed="${picked.has(code)}">${picked.has(code)?T.added:T.add}</button></div></article>`}
 function list(){const Q=q.trim().toUpperCase();return P.filter(p=>(cat==='all'||p[2].includes(cat))&&(!Q||p[0].toUpperCase().includes(Q)))}
-function draw(reset){const L=list();if(reset){shown=0;grid.innerHTML=''}
+function draw(reset){const L=list();if(reset){shown=0;grid.innerHTML='';const oc=document.getElementById('owncard');if(oc&&cat==='all'&&!q.trim())grid.appendChild(oc.content.cloneNode(true))}
  const next=L.slice(shown,shown+STEP);grid.insertAdjacentHTML('beforeend',next.map(card).join(''));shown+=next.length;
  cnt.textContent=(T.count||'{n}').replace('{n}',L.length);moreBtn.parentElement.hidden=shown>=L.length}
 function setCat(c){cat=c;document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.c===c));if(P.length)draw(true)}

@@ -346,3 +346,9 @@ input[type=file]::file-selector-button{font:600 14px var(--b);background:var(--a
 .made4>div{background:var(--bg);padding:16px 18px}
 .made4 b{display:block;font:400 32px/1 "Anton",sans-serif;color:var(--acc);letter-spacing:.01em}
 .made4 span{display:block;margin-top:6px;font-size:13px;color:var(--mut)}
+.item.own{background:var(--acc);color:#0B0B0C;text-decoration:none;display:flex;align-items:flex-end;min-height:100%}
+.item.own>div{padding:22px 20px}
+.item.own h3{font:700 24px/1.15 var(--b);text-transform:none;letter-spacing:0;color:#0B0B0C}
+.item.own h3 i{font-style:normal}
+.item.own p{margin-top:8px;font-size:14px;color:#0B0B0C}
+.item.own:hover:after{border-color:#0B0B0C55}

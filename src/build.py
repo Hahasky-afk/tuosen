@@ -61,6 +61,7 @@ def page(code, hl, hrl, path, name, short, d):
         L.update(importlib.import_module("lang_" + code).L)
     import lang_audit
     L.update(lang_audit.A.get(code, {}))
+    lang_audit.post(L, code)
     if code in lang_audit.FAQ:
         L["faq"] = list(L["faq"])
         for i, qa in lang_audit.FAQ[code].items(): L["faq"][i] = qa

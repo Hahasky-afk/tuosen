@@ -356,3 +356,15 @@ _TK = {"en": "Selected styles up to 8XL", "es": "Modelos seleccionados hasta 8XL
        "fr": "Certains modèles jusqu'au 8XL", "ar": "موديلات مختارة حتى 8XL", "zh": "部分款式最大 8XL"}
 for _c in A:
     A[_c]["ticker"] = [_TK[_c] if "8XL" in x else x for x in A[_c]["ticker"]]
+
+# 2026-11-16 ky: reach buyers first; don't talk much about quoting / pricing terms
+_CT = {"en": "Contact us", "es": "Contáctanos", "pt": "Fale conosco", "fr": "Nous contacter", "ar": "تواصل معنا", "zh": "聯絡我們"}
+for _c in A:
+    A[_c]["hero_cta1"] = A[_c]["cta_quote"] = A[_c]["side_cta"] = _CT[_c]
+def post(L, code):
+    """Final per-language cleanup applied after all overrides."""
+    import re
+    p = L.get("about_p2", "")
+    # drop the sentence about FOB pricing
+    parts = re.split(r"(?<=[.。])\s*", p)
+    L["about_p2"] = " ".join(x for x in parts if x and "FOB" not in x) if code != "zh" else "".join(x for x in parts if x and "FOB" not in x)
