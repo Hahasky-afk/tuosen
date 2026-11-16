@@ -302,3 +302,27 @@ R2 = {
  about_p2="我們也經營自有批發和電商品牌「潮衫酷」，團隊對返單、尺碼穩定和什麼款真正好賣有第一手經驗。工廠在揭陽，能提供有競爭力的 FOB 報價，價格按面料、做工、數量和包裝而定。"),
 }
 for _c, _d in R2.items(): A[_c].update(_d)
+
+# 2026-11-16 ky: first hero stat = 10+ years of production experience (not "2 facilities")
+for _c, _k, _v in [("en","Production experience","10+ years"),("es","Experiencia en producción","Más de 10 años"),("pt","Experiência em produção","Mais de 10 anos"),("fr","Expérience de production","Plus de 10 ans"),("ar","خبرة في الإنتاج","أكثر من 10 سنوات"),("zh","生產經驗","10 年以上")]:
+    A[_c].update(hs1_k=_k, hs1_v=_v)
+
+# 2026-11-16 ky: drop FOB Shantou/Shenzhen from ticker & process; hero = professional garment manufacturer (men's + women's)
+import re as _re
+_H = {"en":("Professional garment manufacturer,","from sample to bulk."),
+      "es":("Fabricante profesional de ropa,","de la muestra a la producción."),
+      "pt":("Fabricante profissional de roupas,","da amostra à produção."),
+      "fr":("Fabricant professionnel de vêtements,","de l'échantillon à la production."),
+      "ar":("مصنع ملابس محترف،","من العينة إلى الإنتاج."),
+      "zh":("專業服裝製造工廠，","從打樣到大貨。")}
+_S5 = {"en":"Export cartons, with compressed bales on request, marked to your instructions.",
+       "es":"Cajas de exportación, o pacas prensadas si lo pides, marcadas según tus instrucciones.",
+       "pt":"Caixas de exportação, ou fardos prensados sob pedido, marcados conforme suas instruções.",
+       "fr":"Cartons export, ou balles compressées sur demande, marqués selon vos instructions.",
+       "ar":"كراتين تصدير، أو بالات مضغوطة عند الطلب، معلّمة حسب تعليماتك.",
+       "zh":"出口紙箱，也可按要求壓包，按你的要求打嘜。"}
+for _c in A:
+    A[_c]["ticker"] = [x for x in A[_c]["ticker"] if "FOB" not in x]
+    A[_c]["hero_h1a"], A[_c]["hero_h1b"] = _H[_c]
+    A[_c]["s5_p"] = _S5[_c]
+    A[_c]["meta_desc"] = _re.sub(r"[,，،]\s*FOB[^.。]*", "", A[_c]["meta_desc"])
