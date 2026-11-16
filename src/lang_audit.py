@@ -519,3 +519,10 @@ _P6 = {
 for _c in A:
     for _i, (_t, _p) in enumerate(_P6[_c], 1):
         A[_c][f"s{_i}_t"], A[_c][f"s{_i}_p"] = _t, _p
+
+# 2026-11-16 (ky): no "own label" wording anywhere (avoid looking like a competitor)
+_NL = {"en": ("2,000+ styles", "Real photos", "Styles made"), "es": ("Más de 2,000 modelos", "Fotos reales", "Modelos hechos"),
+       "pt": ("Mais de 2.000 modelos", "Fotos reais", "Modelos feitos"), "fr": ("Plus de 2 000 modèles", "Vraies photos", "Modèles fabriqués"),
+       "ar": ("أكثر من 2,000 موديل", "صور حقيقية", "موديلات صنعناها"), "zh": ("已做 2,000+ 款", "實拍照片", "已做款式")}
+for _c in A:
+    A[_c]["hs2_v"], A[_c]["prod_k"], A[_c]["f4_k"] = _NL[_c]
