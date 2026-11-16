@@ -503,3 +503,19 @@ FAQ8 = {
 }
 def post2(L, code):
     L["faq"] = list(FAQ8[code])
+
+# 2026-11-16 (ky, round 5): drop own-label ticker item; compact 6-step process
+_OWN = ("Own wholesale", "Marca propia mayorista", "Marca própria", "Marque propre en gros", "علامتنا للجملة", "自有批發與電商")
+for _c in A:
+    A[_c]["ticker"] = [x for x in A[_c]["ticker"] if not x.startswith(_OWN)]
+_P6 = {
+"zh": [("需求與報價","確認產品規格、數量與交期"),("樣衣確認","確認版型、面料及工藝"),("批量生產","按確認樣品安排生產"),("品質檢驗","依約定標準進行檢驗"),("包裝與出貨","提供出貨照片及裝箱資料"),("長期返單","保留確認的產品規格，方便後續返單")],
+"en": [("Inquiry & quote","Confirm specifications, quantity and lead time"),("Sample approval","Confirm pattern, fabric and workmanship"),("Bulk production","Produced to the approved sample"),("Quality inspection","Inspected to the agreed standard"),("Packing & shipment","Shipment photos and packing list provided"),("Long-term reorders","Approved specs kept on file for easy reorders")],
+"es": [("Consulta y cotización","Confirmamos especificaciones, cantidad y plazo"),("Aprobación de muestra","Confirmamos patrón, tela y acabados"),("Producción","Según la muestra aprobada"),("Control de calidad","Inspección según el estándar acordado"),("Embalaje y envío","Fotos del embarque y lista de empaque"),("Pedidos repetidos","Guardamos las especificaciones para repetir fácilmente")],
+"pt": [("Consulta e orçamento","Confirmamos especificações, quantidade e prazo"),("Aprovação da amostra","Confirmamos modelagem, tecido e acabamento"),("Produção","Conforme a amostra aprovada"),("Inspeção de qualidade","Inspeção pelo padrão combinado"),("Embalagem e envio","Fotos do embarque e romaneio"),("Recompras","Especificações guardadas para recompras rápidas")],
+"fr": [("Demande et devis","Spécifications, quantité et délai confirmés"),("Validation de l'échantillon","Patronage, tissu et finitions confirmés"),("Production","Selon l'échantillon validé"),("Contrôle qualité","Contrôle selon le standard convenu"),("Emballage et expédition","Photos d'expédition et liste de colisage"),("Réassorts","Spécifications conservées pour réassortir facilement")],
+"ar": [("الاستفسار والتسعير","تأكيد المواصفات والكمية ومدة التسليم"),("اعتماد العينة","تأكيد القالب والقماش والتشطيب"),("الإنتاج الكمي","الإنتاج وفق العينة المعتمدة"),("فحص الجودة","الفحص وفق المعيار المتفق عليه"),("التغليف والشحن","صور الشحنة وقائمة التعبئة"),("إعادة الطلب","نحتفظ بالمواصفات المعتمدة لتسهيل إعادة الطلب")],
+}
+for _c in A:
+    for _i, (_t, _p) in enumerate(_P6[_c], 1):
+        A[_c][f"s{_i}_t"], A[_c][f"s{_i}_p"] = _t, _p

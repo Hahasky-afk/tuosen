@@ -95,8 +95,8 @@
   <div class="hd"><h2>{{proc_h2}}</h2><p class="lede">{{proc_p}}</p></div>
   <div class="steps">
     <div class="step"><div class="sh"><span class="n">01</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></div><div class="t"><h3>{{s1_t}}</h3><p>{{s1_p}}</p></div></div>
-    <div class="step"><div class="sh"><span class="n">02</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.5 20 18M8.6 16.5 20 6"/></svg></div><span class="day">{{s2_d}}</span><div class="t"><h3>{{s2_t}}</h3><p>{{s2_p}}</p></div></div>
-    <div class="step"><div class="sh"><span class="n">03</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 4.5 9-4.5"/></svg></div><span class="day">{{s3_d}}</span><div class="t"><h3>{{s3_t}}</h3><p>{{s3_p}}</p></div></div>
+    <div class="step"><div class="sh"><span class="n">02</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.5 20 18M8.6 16.5 20 6"/></svg></div><div class="t"><h3>{{s2_t}}</h3><p>{{s2_p}}</p></div></div>
+    <div class="step"><div class="sh"><span class="n">03</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 4.5 9-4.5"/></svg></div><div class="t"><h3>{{s3_t}}</h3><p>{{s3_p}}</p></div></div>
     <div class="step"><div class="sh"><span class="n">04</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><div class="t"><h3>{{s4_t}}</h3><p>{{s4_p}}</p></div></div>
     <div class="step"><div class="sh"><span class="n">05</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg></div><div class="t"><h3>{{s5_t}}</h3><p>{{s5_p}}</p></div></div>
     <div class="step"><div class="sh"><span class="n">06</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a8 8 0 0 0-14.5-2.5M4 4v4h4"/><path d="M4 16a8 8 0 0 0 14.5 2.5M20 20v-4h-4"/></svg></div><div class="t"><h3>{{s6_t}}</h3><p>{{s6_p}}</p></div></div>
@@ -170,7 +170,7 @@
       <label for="f-mail">Email *<input id="f-mail" type="email" required autocomplete="email"></label>
     </div>
     <div class="r2">
-      <label for="f-country">{{f_country}}<input id="f-country" autocomplete="country-name"></label>
+      <label for="f-country">{{f_country}}<input id="f-country" autocomplete="country-name" placeholder="{{optional}}"></label>
       <label for="f-co">{{f_co}}<input id="f-co" autocomplete="organization" placeholder="{{optional}}"></label>
     </div>
     <div class="r2">
@@ -178,7 +178,7 @@
       <label for="f-qty">{{f_qty}}<select id="f-qty"><option value="" selected>{{optional}}</option><option>500 – 1,000</option><option>1,000 – 5,000</option><option>5,000 – 20,000</option><option>20,000+</option></select></label>
     </div>
     <div class="picked" id="picked" aria-live="polite"></div>
-    <label for="f-msg">{{f_msg}}<textarea id="f-msg" rows="4" placeholder="{{f_msg_ph}}"></textarea></label>
+    <label for="f-msg">{{f_msg}} *<textarea id="f-msg" rows="4" required placeholder="{{f_msg_ph}}"></textarea></label>
     <label for="f-files">{{f_files}} <span class="opt">{{f_files_hint}}</span><input id="f-files" type="file" multiple accept="image/*,.pdf"></label>
     <button class="btn" type="submit">{{f_send}}</button>
     <p class="sent" id="sent" hidden>{{f_sent}}</p>
