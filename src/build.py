@@ -25,7 +25,7 @@ first = [p for p in prods if p["p"] == 3]
 rest = sorted([p for p in prods if p["p"] < 3], key=lambda p: -p["p"])
 buckets = {}
 for p in rest: buckets.setdefault(p["k"][0], []).append(p)
-order = ["tees", "sets", "polos", "pants", "sweats", "shirts", "jackets", "knit", "shorts"]
+order = ["tees", "sets", "polos", "pants", "sweats", "shirts", "jackets", "knit", "shorts", "women"]
 rr = []
 while any(buckets.values()):
     for c in order:
@@ -37,7 +37,23 @@ counts = {c: sum(c in p["k"] for p in prods) for c in CATS}; counts["all"] = len
 CARD = [("basics", "b-ts-01", True), ("sets", "p/r046", True), ("tees", "p/r078", False), ("polos", "p/r155", False),
         ("pants", "s/" + next(s["i"] for s in stall if s["c"] == "CK41"), False), ("sweats", "p/r104", False),
         ("knit", "s/" + next(s["i"] for s in stall if s["c"] == "ZY02"), False), ("shirts", "p/r134", False),
-        ("jackets", next(s["img"] for s in stall if "jackets" in s["k"]), False)]
+        ("jackets", next(s["img"] for s in stall if "jackets" in s["k"]), False), ("shorts", "s2/943", False), ("women", "s2/1437", False)]
+
+SZ = ["XXS", "XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL", "8XL"]
+def _rng(c):
+    lo, hi = [], []
+    for p in prods:
+        if c not in p["k"] or "–" not in p["z"]: continue
+        a, b = [x.strip().upper() for x in p["z"].split("–", 1)]
+        if a in SZ and b in SZ: lo.append(SZ.index(a)); hi.append(SZ.index(b))
+    if not lo: return ""
+    r = f"{SZ[min(lo)]}–{SZ[max(hi)]}"
+    return r if hi.count(max(hi)) == len(hi) else "SOME:" + r
+RANGE = {c: _rng(c) for c in CATS}
+SOME = {"en": "some up to {x}", "es": "algunos hasta {x}", "pt": "alguns até {x}", "fr": "certains jusqu'au {x}", "ar": "بعضها حتى {x}", "zh": "部分做到 {x}"}
+def rlabel(c, code):
+    r = RANGE[c]
+    return SOME[code].format(x=r.split("–")[1]) if r.startswith("SOME:") else r
 
 def page(code, hl, hrl, path, name, short, d):
     L = dict(EN)
@@ -68,8 +84,8 @@ def page(code, hl, hrl, path, name, short, d):
     for c, img, big in CARD:
         if not counts.get(c): continue
         cards.append(f'<a class="cat{" big" if big else ""}{" basics" if c == "basics" else ""}" href="#products" data-c="{c}"><img src="/img/{img}.jpg" alt="" loading="lazy">'
-                     f'<div><h3>{cl[c]} <i>→</i></h3><p>{ns.format(n=counts[c])} · {X[code]["proven"] if c == "basics" else "M–8XL"}</p></div>'
-                     + (f'<em>{v["cat_size"]}</em>' if big and c != "basics" else "") + '</a>')
+                     f'<div><h3>{cl[c]} <i>→</i></h3><p>{ns.format(n=counts[c])} · {X[code]["proven"] if c == "basics" else rlabel(c, code)}</p></div>'
+                     + (f'<em>{v["cat_size"]}</em>' if big and c != "basics" and RANGE[c].endswith("8XL") and not RANGE[c].startswith("SOME:") else "") + '</a>')
     cards.append(f'<a class="cat own" href="#contact"><div><h3>{v["c_own"]} <i>→</i></h3><p>{v["c_own_p"]}</p></div></a>')
     v["cat_cards"] = "".join(cards)
     v["js_strings"] = json.dumps(js, ensure_ascii=False)

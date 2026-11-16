@@ -365,3 +365,7 @@ footer{background:var(--panel2)}
 @media (hover:none){.item:hover,.cat:hover,.step:hover,.recs article:hover,.ways article:hover,.terms>div:hover,.btn:hover{transform:none}.item:hover img{transform:none}}
 @media (prefers-reduced-motion:reduce){.item,.cat,.step,.btn,.item img{transition:none!important}}
 .add{border-color:color-mix(in srgb,var(--ink) 22%,transparent)}
+.made4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:22px 0 4px}
+.made4>div{background:var(--bg);padding:16px 18px}
+.made4 b{display:block;font:400 32px/1 "Anton",sans-serif;color:var(--acc);letter-spacing:.01em}
+.made4 span{display:block;margin-top:6px;font-size:13px;color:var(--mut)}

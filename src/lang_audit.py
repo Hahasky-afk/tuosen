@@ -309,12 +309,12 @@ for _c, _k, _v in [("en","Production experience","10+ years"),("es","Experiencia
 
 # 2026-11-16 ky: drop FOB Shantou/Shenzhen from ticker & process; hero = professional garment manufacturer (men's + women's)
 import re as _re
-_H = {"en":("Professional garment manufacturer,","from sample to bulk."),
-      "es":("Fabricante profesional de ropa,","de la muestra a la producción."),
-      "pt":("Fabricante profissional de roupas,","da amostra à produção."),
-      "fr":("Fabricant professionnel de vêtements,","de l'échantillon à la production."),
-      "ar":("مصنع ملابس محترف،","من العينة إلى الإنتاج."),
-      "zh":("專業服裝製造工廠，","從打樣到大貨。")}
+_H = {"en":("Professional garment manufacturer,","from sample to bulk delivery."),
+      "es":("Fabricante profesional de ropa,","de la muestra a la entrega del pedido."),
+      "pt":("Fabricante profissional de roupas,","da amostra à entrega do pedido."),
+      "fr":("Fabricant professionnel de vêtements,","de l'échantillon à la livraison."),
+      "ar":("مصنع ملابس محترف،","من العينة إلى تسليم الطلبية."),
+      "zh":("專業服裝製造工廠，","從打樣到大貨交付。")}
 _S5 = {"en":"Export cartons, with compressed bales on request, marked to your instructions.",
        "es":"Cajas de exportación, o pacas prensadas si lo pides, marcadas según tus instrucciones.",
        "pt":"Caixas de exportação, ou fardos prensados sob pedido, marcados conforme suas instruções.",
@@ -332,3 +332,27 @@ _ST = "No. 14, Lane 4, Dalujiao, Dongwei, Jiedong District, "
 for _c in A:
     A[_c]["v_loc_v"] = ("中國廣東省揭陽市揭東區東圍大路腳4巷14號" if _c == "zh" else
                        "No. 14, Lane 4, Dalujiao, Dongwei, Jiedong District, Jieyang, Guangdong, " + ("Chine" if _c == "fr" else "China"))
+
+# 2026-11-16 ky: big sizes only on some styles ("部分到 8XL")
+_SZ = {"en": ("Big sizes up to 8XL on selected styles", "Garment factory in Jieyang, Guangdong, China. T-shirts, polos, sets, sweatshirts, shirts and womenswear; selected men's styles up to 8XL."),
+       "es": ("Tallas grandes hasta 8XL en modelos seleccionados", "Fábrica de ropa en Jieyang, Guangdong, China. Camisetas, polos, conjuntos, sudaderas, camisas y ropa de mujer; algunos modelos de hombre hasta 8XL."),
+       "pt": ("Tamanhos grandes até 8XL em modelos selecionados", "Fábrica de roupas em Jieyang, Guangdong, China. Camisetas, polos, conjuntos, moletons, camisas e moda feminina; alguns modelos masculinos até 8XL."),
+       "fr": ("Grandes tailles jusqu'au 8XL sur une sélection de modèles", "Usine de vêtements à Jieyang, Guangdong, Chine. T-shirts, polos, ensembles, sweats, chemises et mode femme ; certains modèles homme jusqu'au 8XL."),
+       "ar": ("مقاسات كبيرة حتى 8XL في موديلات مختارة", "مصنع ملابس في جيه يانغ، قوانغدونغ، الصين. تيشيرتات وبولو وأطقم وسويت شيرت وقمصان وملابس نسائية، وبعض الموديلات الرجالية حتى 8XL."),
+       "zh": ("部分款式做到 8XL 大碼", "中國廣東揭陽服裝工廠。T恤、Polo衫、套裝、衛衣、襯衫和女裝，部分男裝款式做到 8XL。")}
+for _c in A:
+    A[_c]["sizes_h2"], A[_c]["foot_p"] = _SZ[_c]
+
+# 2026-11-16 ky: About headline more professional; bulk volumes as proof
+_AB = {"en": ("Our own factory, our own stalls, styles proven in the market", "milk-silk T-shirts", "work shorts", "wide-leg sweatpants", "flatlock-stitched tops"),
+       "es": ("Fábrica propia, puestos propios, modelos probados en el mercado", "camisetas de seda de leche", "shorts de trabajo", "pantalones deportivos anchos", "prendas con costura flatlock"),
+       "pt": ("Fábrica própria, bancas próprias, modelos testados no mercado", "camisetas de seda de leite", "bermudas de trabalho", "calças de moletom pantalona", "peças com costura flatlock"),
+       "fr": ("Notre usine, nos propres points de vente, des modèles éprouvés", "T-shirts soie de lait", "shorts de travail", "pantalons molleton jambe large", "hauts en couture flatlock"),
+       "ar": ("مصنعنا ومحلاتنا الخاصة، وموديلات مجرَّبة في السوق", "تيشيرت حرير الحليب", "شورت عمل", "بنطال رياضي واسع", "قطعة بخياطة فلات لوك"),
+       "zh": ("自有工廠，自有檔口，款式經過市場驗證", "件牛奶絲T恤", "件工裝短褲", "件闊腿衛褲", "件四針六線款")}
+for _c in A:
+    A[_c]["about_h2"], A[_c]["m1"], A[_c]["m2"], A[_c]["m3"], A[_c]["m4"] = _AB[_c]
+_TK = {"en": "Selected styles up to 8XL", "es": "Modelos seleccionados hasta 8XL", "pt": "Modelos selecionados até 8XL",
+       "fr": "Certains modèles jusqu'au 8XL", "ar": "موديلات مختارة حتى 8XL", "zh": "部分款式最大 8XL"}
+for _c in A:
+    A[_c]["ticker"] = [_TK[_c] if "8XL" in x else x for x in A[_c]["ticker"]]
