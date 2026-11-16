@@ -438,3 +438,68 @@ _FAQ3 = {
 def post2(L, code):
     for i, q, a in _FAQ3[code]:
         if i < len(L["faq"]): L["faq"][i] = (q, a)
+
+# 2026-11-16 (ky, round 4): shorter hero intro; new 8-question FAQ
+_R4 = {
+"en": "10+ years of garment manufacturing. We produce T-shirts, polos, sets, sweatshirts and more in bulk for overseas importers, wholesalers and brands, with private label, development from your sample and long-term reorders. Specialists in plus sizes, with proven patterns and bulk capacity, adjusted to US and European sizing.",
+"es": "Más de 10 años fabricando ropa. Producimos en volumen camisetas, polos, conjuntos, sudaderas y más para importadores, mayoristas y marcas, con marca propia, desarrollo a partir de tu muestra y pedidos repetidos. Especialistas en tallas grandes, con patrones probados y capacidad de volumen, ajustados a las tallas de EE. UU. y Europa.",
+"pt": "Mais de 10 anos de confecção. Produzimos em volume camisetas, polos, conjuntos, moletons e mais para importadores, atacadistas e marcas, com marca própria, desenvolvimento a partir da sua amostra e recompras. Especialistas em plus size, com modelagens testadas e capacidade de volume, ajustadas à grade dos EUA e da Europa.",
+"fr": "Plus de 10 ans de confection. Nous produisons en volume T-shirts, polos, ensembles, sweats et plus pour importateurs, grossistes et marques, avec marque propre, développement d'après votre échantillon et réassorts. Spécialistes des grandes tailles, avec des patronages éprouvés et une vraie capacité de volume, adaptés aux tailles américaines et européennes.",
+"ar": "أكثر من 10 سنوات في تصنيع الملابس. ننتج بالجملة التيشيرتات والبولو والأطقم والسويت شيرت وغيرها للمستوردين وتجار الجملة والعلامات التجارية، مع العلامة الخاصة والتطوير من عينتك وإعادة الطلب. متخصصون في المقاسات الكبيرة بقوالب مجرَّبة وقدرة إنتاج كمي، مع ضبط المقاسات حسب معايير أمريكا وأوروبا.",
+"zh": "擁有 10 年以上服裝製造經驗，為海外進口商、批發商及品牌提供 T 恤、Polo 衫、套裝、衛衣等批量生產與客製服務，支援貼牌、來樣開發及長期返單。深耕大碼服裝生產，具備成熟版型與量產能力，可依歐美市場尺碼需求調整。",
+}
+for _c in A:
+    A[_c]["hero_p"] = _R4[_c]
+A["zh"]["hero_h1b"] = "為全球批發商與<br>品牌提供穩定供應。"
+FAQ8 = {
+"zh": [("你們是服裝工廠還是貿易公司？", "我們在中國廣東揭陽擁有兩家服裝工廠，具備裁剪、車縫、後整及包裝能力，歡迎預約視訊驗廠。"),
+ ("最低訂購量（MOQ）是多少？", "每款 500 件起訂，同款可混合不同顏色和尺碼。"),
+ ("可以按照歐美尺碼標準生產嗎？", "可以。我們長期生產大碼服裝，擁有成熟的大尺碼版型與量產經驗。可依客戶提供的尺碼表或樣衣調整版型，部分男裝款式最大可做到 8XL。"),
+ ("支援哪些 OEM / ODM 客製服務？", "支援來樣開發、版型調整、面料選擇、Logo 印花、刺繡、品牌標籤及包裝客製。"),
+ ("打樣和批量生產需要多久？", "部分款式打樣最快 3 個工作日起，常規返單約 7–14 個工作日。實際交期依訂單數量、面料及工藝確認。"),
+ ("如何取得報價？", "提供產品圖片或規格書、訂購數量、尺碼及客製需求，我們將在確認規格後提供報價。"),
+ ("如何確保產品品質？", "依確認的樣衣及尺碼表進行生產與檢驗，涵蓋尺寸、車縫、印繡及包裝。出貨前可提供實拍照片，並支援第三方驗貨。"),
+ ("如何安排國際出貨？", "支援 FOB 汕頭或深圳出貨，可配合客戶指定貨代，亦可協助對接海運及空運物流。")],
+"en": [("Are you a garment factory or a trading company?", "We own two garment factories in Jieyang, Guangdong, China, with cutting, sewing, finishing and packing in house. Video factory tours are welcome by appointment."),
+ ("What is your minimum order quantity (MOQ)?", "500 pieces per style. Colours and sizes can be mixed within a style."),
+ ("Can you produce to US and European size standards?", "Yes. We have long produced plus sizes and have proven big-size patterns and bulk experience. We adjust patterns to your size chart or sample, and selected men's styles go up to 8XL."),
+ ("What OEM / ODM customisation do you offer?", "Development from your sample, pattern adjustment, fabric selection, logo printing, embroidery, brand labels and custom packaging."),
+ ("How long do sampling and bulk production take?", "Samples for selected styles from 3 working days. Repeat orders about 7–14 working days. Final lead time is confirmed by quantity, fabric and workmanship."),
+ ("How do I get a quotation?", "Send product photos or a tech pack, order quantity, sizes and customisation needs. We quote once the specifications are confirmed."),
+ ("How do you ensure product quality?", "We produce and inspect against the approved sample and size chart, covering measurements, stitching, print and embroidery, and packing. Pre-shipment photos are available and third-party inspection is supported."),
+ ("How is international shipping arranged?", "We ship FOB Shantou or Shenzhen, work with your nominated forwarder, and can help arrange sea or air freight.")],
+"es": [("¿Son una fábrica de ropa o una empresa comercial?", "Tenemos dos fábricas de ropa en Jieyang, Guangdong (China), con corte, confección, acabado y embalaje propios. Puedes visitar la fábrica por videollamada con cita previa."),
+ ("¿Cuál es el pedido mínimo (MOQ)?", "500 piezas por modelo. Se pueden mezclar colores y tallas dentro del mismo modelo."),
+ ("¿Pueden producir con tallaje de EE. UU. y Europa?", "Sí. Llevamos años produciendo tallas grandes y tenemos patrones probados y experiencia en volumen. Ajustamos el patrón a tu tabla de tallas o muestra; algunos modelos de hombre llegan a 8XL."),
+ ("¿Qué servicios OEM / ODM ofrecen?", "Desarrollo a partir de tu muestra, ajuste de patrones, elección de tela, estampado de logo, bordado, etiquetas de marca y embalaje personalizado."),
+ ("¿Cuánto tardan la muestra y la producción?", "Muestras de algunos modelos desde 3 días hábiles. Pedidos repetidos, unos 7–14 días hábiles. El plazo final se confirma según cantidad, tela y acabados."),
+ ("¿Cómo obtengo una cotización?", "Envía fotos o ficha técnica, cantidad, tallas y personalización. Cotizamos una vez confirmadas las especificaciones."),
+ ("¿Cómo garantizan la calidad?", "Producimos e inspeccionamos según la muestra y la tabla de tallas aprobadas: medidas, costuras, estampado y bordado, y embalaje. Enviamos fotos antes del embarque y aceptamos inspección de terceros."),
+ ("¿Cómo se organiza el envío internacional?", "Enviamos FOB Shantou o Shenzhen, trabajamos con tu transitario y podemos ayudarte con flete marítimo o aéreo.")],
+"pt": [("Vocês são fábrica ou trading?", "Temos duas fábricas de roupas em Jieyang, Guangdong (China), com corte, costura, acabamento e embalagem próprios. Visitas por vídeo com agendamento."),
+ ("Qual é o pedido mínimo (MOQ)?", "500 peças por modelo. Cores e tamanhos podem ser misturados dentro do mesmo modelo."),
+ ("Vocês produzem na grade dos EUA e da Europa?", "Sim. Produzimos plus size há anos e temos modelagens grandes testadas e experiência em volume. Ajustamos a modelagem à sua tabela de medidas ou amostra; alguns modelos masculinos vão até 8XL."),
+ ("Quais serviços OEM / ODM vocês oferecem?", "Desenvolvimento a partir da sua amostra, ajuste de modelagem, escolha de tecido, estampa de logo, bordado, etiquetas de marca e embalagem personalizada."),
+ ("Quanto tempo levam amostra e produção?", "Amostras de alguns modelos a partir de 3 dias úteis. Recompras em cerca de 7–14 dias úteis. O prazo final é confirmado conforme quantidade, tecido e acabamento."),
+ ("Como peço um orçamento?", "Envie fotos ou ficha técnica, quantidade, tamanhos e personalização. Orçamos depois de confirmar as especificações."),
+ ("Como garantem a qualidade?", "Produzimos e inspecionamos conforme a amostra e a tabela de medidas aprovadas: medidas, costuras, estampa e bordado, e embalagem. Enviamos fotos antes do embarque e aceitamos inspeção de terceiros."),
+ ("Como funciona o envio internacional?", "Embarcamos FOB Shantou ou Shenzhen, trabalhamos com o seu agente de cargas e podemos ajudar com frete marítimo ou aéreo.")],
+"fr": [("Êtes-vous une usine ou une société de négoce ?", "Nous possédons deux usines de vêtements à Jieyang, Guangdong (Chine), avec coupe, couture, finition et emballage en interne. Visite d'usine en visio sur rendez-vous."),
+ ("Quelle est la quantité minimum (MOQ) ?", "500 pièces par modèle. Coloris et tailles peuvent être panachés dans un même modèle."),
+ ("Pouvez-vous produire aux tailles américaines et européennes ?", "Oui. Nous produisons des grandes tailles depuis longtemps, avec des patronages éprouvés et une expérience du volume. Nous adaptons le patronage à votre grille ou échantillon ; certains modèles homme vont jusqu'au 8XL."),
+ ("Quels services OEM / ODM proposez-vous ?", "Développement d'après échantillon, ajustement de patronage, choix du tissu, impression de logo, broderie, étiquettes de marque et emballage personnalisé."),
+ ("Quels délais pour l'échantillon et la production ?", "Échantillons à partir de 3 jours ouvrés pour certains modèles. Réassorts en environ 7–14 jours ouvrés. Le délai final dépend de la quantité, du tissu et des finitions."),
+ ("Comment obtenir un devis ?", "Envoyez photos ou fiche technique, quantité, tailles et personnalisation. Nous chiffrons une fois les spécifications confirmées."),
+ ("Comment assurez-vous la qualité ?", "Production et contrôle selon l'échantillon et la grille de tailles validés : mesures, coutures, impression et broderie, emballage. Photos avant expédition et inspection par un tiers possibles."),
+ ("Comment s'organise l'expédition internationale ?", "Expédition FOB Shantou ou Shenzhen, avec votre transitaire, et aide pour le fret maritime ou aérien.")],
+"ar": [("هل أنتم مصنع ملابس أم شركة تجارية؟", "نمتلك مصنعين للملابس في جيه يانغ، قوانغدونغ، الصين، ونقوم بالقص والخياطة والتشطيب والتغليف داخليًا. نرحب بزيارة المصنع عبر الفيديو بموعد مسبق."),
+ ("ما هو الحد الأدنى للطلب (MOQ)؟", "500 قطعة لكل موديل، ويمكن خلط الألوان والمقاسات داخل الموديل نفسه."),
+ ("هل يمكنكم الإنتاج حسب مقاسات أمريكا وأوروبا؟", "نعم. ننتج المقاسات الكبيرة منذ سنوات ولدينا قوالب مجرَّبة وخبرة في الإنتاج الكمي. نعدّل القالب حسب جدول مقاساتك أو عينتك، وبعض الموديلات الرجالية تصل إلى 8XL."),
+ ("ما خدمات OEM / ODM التي تقدمونها؟", "التطوير من عينتك، تعديل القالب، اختيار القماش، طباعة الشعار، التطريز، ملصقات العلامة التجارية والتغليف المخصص."),
+ ("كم تستغرق العينة والإنتاج؟", "عينات بعض الموديلات من 3 أيام عمل. إعادة الطلب نحو 7–14 يوم عمل. تُحدد المدة النهائية حسب الكمية والقماش والتشطيب."),
+ ("كيف أحصل على عرض سعر؟", "أرسل صور المنتج أو المواصفات الفنية والكمية والمقاسات ومتطلبات التخصيص، ونرسل السعر بعد تأكيد المواصفات."),
+ ("كيف تضمنون الجودة؟", "ننتج ونفحص حسب العينة وجدول المقاسات المعتمدين: القياسات والخياطة والطباعة والتطريز والتغليف. نرسل صورًا قبل الشحن وندعم الفحص من طرف ثالث."),
+ ("كيف يتم الشحن الدولي؟", "نشحن FOB شانتو أو شنتشن، ونعمل مع وكيل الشحن الذي تختاره، ويمكننا المساعدة في الشحن البحري أو الجوي.")],
+}
+def post2(L, code):
+    L["faq"] = list(FAQ8[code])

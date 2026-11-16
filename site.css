@@ -357,3 +357,4 @@ input[type=file]::file-selector-button{font:600 14px var(--b);background:var(--a
 .ownbtn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;background:var(--acc);color:#0B0B0C;font:700 13px/1 var(--b);letter-spacing:.04em;text-decoration:none;border:1px solid var(--acc);transition:background .2s,box-shadow .2s,transform .2s}
 .ownbtn i{font-style:normal}
 .ownbtn:hover{background:#fff;border-color:#fff;transform:translateY(-1px);box-shadow:0 8px 24px -8px color-mix(in srgb,var(--acc) 70%,transparent)}
+.side a.btn{display:inline-flex;padding:0 22px;min-height:44px}
