@@ -64,3 +64,6 @@ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.tar
 els.forEach(e=>{const sib=[...e.parentElement.children].filter(x=>els.includes(x));const i=Math.min(sib.indexOf(e),5);e.style.transitionDelay=(i*0.08)+'s';
  const r=e.getBoundingClientRect();if(r.top<innerHeight)return; e.classList.add('rv');io.observe(e)});
 })();
+/* hide floating WhatsApp over the hero on phones (2026-11-17) */
+(()=>{const f=document.querySelector('.float'),h=document.querySelector('.hero');if(!f||!h)return;
+const u=()=>f.classList.toggle('away',scrollY<h.offsetHeight*0.6);u();addEventListener('scroll',u,{passive:true});})();

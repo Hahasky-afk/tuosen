@@ -526,3 +526,15 @@ _NL = {"en": ("2,000+ styles", "Real photos", "Styles made"), "es": ("Más de 2,
        "ar": ("أكثر من 2,000 موديل", "صور حقيقية", "موديلات صنعناها"), "zh": ("已做 2,000+ 款", "實拍照片", "已做款式")}
 for _c in A:
     A[_c]["hs2_v"], A[_c]["prod_k"], A[_c]["f4_k"] = _NL[_c]
+
+# 2026-11-17: search snippet without MOQ/sample/process wording (ky: reach buyers first, no thresholds)
+_MD = {
+ "en": "Garment factory in Jieyang, China, focused on bulk production for wholesalers and brands worldwide. T-shirts, polos, sets, sweatshirts, shorts and pants for men and women. 2,000+ styles made, selected styles up to 8XL.",
+ "es": "Fábrica de ropa en Jieyang, China, especializada en producción al por mayor para mayoristas y marcas de todo el mundo. Camisetas, polos, conjuntos, sudaderas, shorts y pantalones para hombre y mujer. Más de 2,000 modelos fabricados, modelos seleccionados hasta 8XL.",
+ "pt": "Fábrica de roupas em Jieyang, China, focada em produção em grande escala para atacadistas e marcas do mundo todo. Camisetas, polos, conjuntos, moletons, bermudas e calças masculinas e femininas. Mais de 2.000 modelos produzidos, modelos selecionados até 8XL.",
+ "fr": "Usine de vêtements à Jieyang, en Chine, spécialisée dans la production en volume pour grossistes et marques du monde entier. T-shirts, polos, ensembles, sweats, shorts et pantalons homme et femme. Plus de 2 000 modèles fabriqués, certains modèles jusqu'au 8XL.",
+ "ar": "مصنع ملابس في جيه يانغ، الصين، متخصص في الإنتاج بالكميات لتجار الجملة والعلامات التجارية حول العالم. تيشيرتات وبولو وأطقم وسويت شيرت وشورتات وبناطيل للرجال والنساء. أكثر من 2,000 موديل منتج، وموديلات مختارة حتى مقاس 8XL.",
+ "zh": "揭陽服裝工廠，專注服裝批量生產，為全球批發商與品牌提供穩定供應。男女裝 T 恤、Polo、套裝、衛衣、短褲、長褲，已做 2,000+ 款，部分款式最大 8XL。",
+}
+for _c in A:
+    A[_c]["meta_desc"] = _MD[_c]
