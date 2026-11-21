@@ -21,7 +21,17 @@ document.querySelectorAll('a[data-c]').forEach(a=>a.addEventListener('click',()=
 let st;srch.addEventListener('input',()=>{clearTimeout(st);st=setTimeout(()=>{q=srch.value;draw(true)},150)});
 (function load(n){fetch('/products.json?v='+(document.documentElement.dataset.pv||'')).then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{P=d;draw(true)}).catch(()=>{if(n<3)setTimeout(()=>load(n+1),800*(n+1));else cnt.textContent=''})})(0);
 const box=document.getElementById('picked'),cta=document.getElementById('top-cta'),ctaTxt=cta.textContent;
+const contactLinks = Array.from(document.querySelectorAll('a[href^="https://wa.me/"], a[href^="mailto:"]'), link => [link, link.href]);
 function drawPicked(){
+  for (const [link, original] of contactLinks) {
+    const url = new URL(original);
+    if (picked.size) {
+      const field = url.protocol === 'mailto:' ? 'body' : 'text';
+      const message = [url.searchParams.get(field), [...picked].join(', ')].filter(Boolean);
+      url.searchParams.set(field, message.join('\n'));
+    }
+    link.href = url.href;
+  }
   box.innerHTML=picked.size?'<span>'+T.picked+'</span>'+[...picked].map(c=>`<button type="button" data-code="${c}">${c} ×</button>`).join(''):'<span>'+T.none+'</span>';
   cta.textContent=picked.size?`${ctaTxt} (${picked.size})`:ctaTxt;
   grid.querySelectorAll('.add').forEach(b=>{const on=picked.has(b.dataset.code);b.setAttribute('aria-pressed',on);b.textContent=on?T.added:T.add});
