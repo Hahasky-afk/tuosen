@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap&amp;family=Cairo:wght@400;600;700" rel="stylesheet"/>
 <link as="image" href="/img/hero-poster.jpg" rel="preload"/>
 <link href="/site.css?v=1121a" rel="stylesheet"/>
-<style>.hstats{grid-template-columns:repeat(2,minmax(0,1fr))}.hero h1{font-size:clamp(2.5rem,5.5vw,5.5rem)}@media(max-width:700px){.srch{width:100%}.srch input{font-size:16px}.hero h1{line-height:1.04}}</style></head>
+<style>.hero h1{font-size:clamp(2.5rem,5.5vw,5.5rem)}@media(max-width:700px){.srch{width:100%}.srch input{font-size:16px}.hero h1{line-height:1.04}}</style></head>
 <body>
 <a class="skip" href="#main">انتقل إلى المحتوى</a>
 
@@ -45,20 +45,20 @@
 </div>
 </div></header>
 <main id="main">
-<section aria-label="مقدمة" class="hero">
-<video aria-hidden="true" autoplay="" loop="" muted="" playsinline="" poster="/img/hero-poster.jpg" preload="auto"><source media="(max-width:700px)" src="/video/hero-m.mp4" type="video/mp4"/><source src="/video/hero.mp4" type="video/mp4"/></video>
-<div class="w">
-<div class="live"><i></i>مصوَّر داخل مصنعنا، جيهيانغ</div>
-<h1>مصنع ملابس في جيه يانغ<br/><span>تيشيرتات وبولو وملابس رياضية بالجملة</span></h1>
-<p class="hp">نصنع ملابس يومية لتجار الجملة والعلامات التجارية. تصفح الموديلات وأرسل رمز الموديل الذي يهمك إلى يانغ.</p>
-<div class="cta"><a class="btn" href="#products">تصفح الموديلات</a><a class="btn o" href="#film">▶ شاهد المصنع</a></div>
-</div>
-<div class="hstats w">
-<div><span>خبرة فريق الإنتاج</span><b>أكثر من 10 سنوات</b></div>
-<div><span>موديلات صنعناها</span><b>أكثر من 2,000 موديل</b></div>
-
-
-</div>
+<section class="hero" aria-label="مقدمة">
+  <video autoplay muted loop playsinline preload="auto" poster="/img/hero-poster.jpg" aria-hidden="true"><source src="/video/hero-m.mp4" type="video/mp4" media="(max-width:700px)"><source src="/video/hero.mp4" type="video/mp4"></video>
+  <div class="w">
+    <div class="live"><i></i>مصوَّر داخل مصنعنا، جيهيانغ</div>
+    <h1>متخصصون في إنتاج الملابس بالجملة،<br><span>توريد مستقر لتجار الجملة والعلامات التجارية حول العالم.</span></h1>
+    <p class="hp">أكثر من 10 سنوات في تصنيع الملابس. ننتج بالجملة التيشيرتات والبولو والأطقم والسويت شيرت وغيرها للمستوردين وتجار الجملة والعلامات التجارية، مع العلامة الخاصة والتطوير من عينتك وإعادة الطلب. متخصصون في المقاسات الكبيرة بقوالب مجرَّبة وقدرة إنتاج كمي، مع ضبط المقاسات حسب معايير أمريكا وأوروبا.</p>
+    <div class="cta"><a class="btn" href="#contact">تواصل معنا</a><a class="btn o" href="#film">▶ شاهد المصنع</a></div>
+  </div>
+  <div class="hstats w">
+    <div><span>خبرة في الإنتاج</span><b>أكثر من 10 سنوات</b></div>
+    <div><span>موديلات صنعناها</span><b>أكثر من 2,000 موديل</b></div>
+    <div><span>العينات</span><b>من 3 أيام عمل</b></div>
+    <div><span>مدة الإنتاج</span><b>إعادة الطلب: نحو 7–14 يوم عمل</b><small class="hsn">الموديلات الجديدة: تُحدد المدة حسب المواصفات</small></div>
+  </div>
 </section>
 <div aria-label="روابط سريعة" class="quick w">
 <a data-msg="photo" href="#contact"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 16V4m0 0-4 4m4-4 4 4M4 15v4h16v-4"></path></svg>لديك صورة أو عينة؟ أرسلها</a>
