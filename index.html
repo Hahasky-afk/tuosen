@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr" data-pv="e64f4e17">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-+YWZJgdJxGMs+LXj1Mc5bwCn178KhwEVXiM6XX/Re9c=' 'sha256-DJhHEa+siQCjwmAHro/csiotMXwWuOep9tG2A9z7C2Y=' 'sha256-WMFy6pELOYFmtWKBbtJI4c4MK/q7L9tmjHsrSiWe9Lk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tuosen Apparel | Garment factory in China. Wholesale & private label, plus-size and extended-size apparel</title>
 <meta name="description" content="Garment factory in Jieyang, China, focused on bulk production for wholesalers and brands worldwide. T-shirts, polos, sets, sweatshirts, shorts and pants for men and women. 2,000+ styles made, plus-size and extended-size production with custom fit and fabric GSM.">
@@ -172,19 +174,19 @@
   <form id="q" novalidate>
     <input id="f-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0">
     <div class="r2">
-      <label for="f-name">Your name *<input id="f-name" required autocomplete="name"></label>
-      <label for="f-mail">Email *<input id="f-mail" type="email" required autocomplete="email"></label>
+      <label for="f-name">Your name *<input id="f-name" maxlength="160" required autocomplete="name"></label>
+      <label for="f-mail">Email *<input id="f-mail" maxlength="254" type="email" required autocomplete="email"></label>
     </div>
     <div class="r2">
-      <label for="f-country">Country<input id="f-country" autocomplete="country-name" placeholder="Optional"></label>
-      <label for="f-co">Company<input id="f-co" autocomplete="organization" placeholder="Optional"></label>
+      <label for="f-country">Country<input id="f-country" maxlength="100" autocomplete="country-name" placeholder="Optional"></label>
+      <label for="f-co">Company<input id="f-co" maxlength="200" autocomplete="organization" placeholder="Optional"></label>
     </div>
     <div class="r2">
       <label for="f-prod">Product<select id="f-prod"><option value="" selected>Select a category (optional)</option><option>T-shirts</option><option>Polos</option><option>Sets</option><option>Pants</option><option>Shorts</option><option>Sweatshirts &amp; hoodies</option><option>Knitwear</option><option>Shirts</option><option>Jackets</option><option>Womenswear</option><option>Other / my own design</option></select></label>
       <label for="f-qty">Quantity per style (pcs)<input id="f-qty" type="text" maxlength="60" placeholder="Approximate quantity (optional)"></label>
     </div>
     <div class="picked" id="picked" aria-live="polite"></div>
-    <label for="f-msg">What do you need? *<textarea id="f-msg" rows="4" required placeholder="Styles, fabric/GSM, fit, size chart, colours, logo, target price"></textarea></label>
+    <label for="f-msg">What do you need? *<textarea id="f-msg" maxlength="6000" rows="4" required placeholder="Styles, fabric/GSM, fit, size chart, colours, logo, target price"></textarea></label>
     <label for="f-files">Photos or tech pack <span class="opt">Up to 5 files, 10 MB total. JPG, PNG or PDF.</span><input id="f-files" type="file" multiple accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"></label>
     <button class="btn" type="submit">Send inquiry</button>
     <p class="sent" id="sent" role="status" hidden>Thank you. The form service accepted your inquiry. If you do not receive a reply, please contact Yang directly.</p>
@@ -205,6 +207,6 @@
 <a class="float" href="https://wa.me/8615549315379?text=Hi%20Yang%2C%20I%20found%20Tuosen%20Apparel%20on%20your%20website." target="_blank" rel="noopener" aria-label="WhatsApp Yang"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z" fill="currentColor"/></svg><span>WhatsApp</span></a>
 
 <script>window.T={"add":"Add to inquiry","added":"Added ✓","picked":"Styles in this inquiry:","none":"No styles added yet. Use “Add to inquiry” on any product, or describe your own design below.","cats":{"all":"All","basics":"Plain basics","tees":"T-shirts","polos":"Polos","sets":"Sets","pants":"Pants","shorts":"Shorts","sweats":"Sweatshirts & hoodies","knit":"Knitwear","shirts":"Shirts","jackets":"Jackets","women":"Womenswear"},"tags":{"waffle":"Waffle knit","heavy":"Heavyweight","knit":"Cotton-feel knit","air":"Air-layer knit","cord":"Corduroy","washed":"Washed","thermal":"Thermal","pique":"Piqué","cargo":"Cargo","wide":"Wide leg","barrel":"Barrel leg","zip":"Zip","embroid":"Embroidered","jacquard":"Jacquard","gradient":"Gradient","layered":"Layered look","plain":"Plain","print":"Printed"},"shipped":"pcs made","search":"Search style no.","more":"Show more","count":"{n} styles","proven":"Proven in bulk","ts":{"TS-01":"Oversized T-shirt","TS-02":"Wide-leg knit sweatpants","TS-03":"Pleated wide-leg sweatpants","TS-04":"Wide-leg lounge sweatpants","TS-05":"Men's long-sleeve shirt","TS-06":"Half-zip pullover","TS-07":"Barrel-leg cargo knit pants","TS-08":"Chino work shorts","TS-09":"Flatlock long-sleeve tee","TS-10":"Fitted tank top","TS-11":"Pullover hoodie","TS-12":"Sleeveless muscle tank","TS-13":"Women's plush zip jacket","TS-14":"Long hooded coat","TS-15":"Sherpa zip jacket"},"refSize":"Ref.","formMessages":{"tooMany":"Please select no more than 5 files.","tooLarge":"The total file size must be 10 MB or less.","badType":"Please use JPG, PNG or PDF files.","failed":"We could not confirm that your inquiry was sent. Your details are still here. Try again or contact us directly."}};</script>
-<script src="/site.js?v=inquiry-20261125"></script>
+<script src="/site.js?v=release-20261125"></script>
 </body>
 </html>
