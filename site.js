@@ -7,9 +7,9 @@ let P=[],cat='all',q='',shown=0;const STEP=matchMedia('(max-width:700px)').match
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function card(p){const [code,img,k,t,z,n]=p;const main=k[0]==='basics'?k[1]:k[0];
  const name=TSN[code]||C[main]||'';const tags=t.map(x=>TG[x]).filter(Boolean).slice(0,2);
- return `<article class="item${n?' made':''}"><div class="ph"><img src="/img/${img}.jpg" alt="${esc(name+' '+code)}" loading="lazy" width="560" height="700">${n?`<span class="mk">${esc(n)} ${esc(T.shipped)}</span>`:''}</div>
+ return `<article class="item${n?' made':''}"><div class="ph"><img src="/img/${esc(img)}.jpg" alt="${esc(name+' '+code)}" loading="lazy" width="560" height="700">${n?`<span class="mk">${esc(n)} ${esc(T.shipped)}</span>`:''}</div>
 <div class="tx"><div class="row"><span>${esc(code)}</span><span class="sz">${z?esc((T.refSize||"Ref.")+" "+z):""}</span></div><h3>${esc(name)}</h3>${tags.length?`<p class="tg">${tags.map(esc).join(' · ')}</p>`:''}
-<button type="button" class="add" data-code="${esc(code)}" aria-pressed="${picked.has(code)}">${picked.has(code)?T.added:T.add}</button></div></article>`}
+<button type="button" class="add" data-code="${esc(code)}" aria-pressed="${picked.has(code)}">${esc(picked.has(code)?T.added:T.add)}</button></div></article>`}
 function list(){const Q=q.trim().toUpperCase();return P.filter(p=>(cat==='all'||p[2].includes(cat))&&(!Q||p[0].toUpperCase().includes(Q)))}
 function draw(reset){const L=list();if(reset){shown=0;grid.innerHTML=''}
  const next=L.slice(shown,shown+STEP);grid.insertAdjacentHTML('beforeend',next.map(card).join(''));shown+=next.length;
@@ -19,17 +19,19 @@ moreBtn.addEventListener('click',()=>draw(false));
 document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>setCat(b.dataset.c)));
 document.querySelectorAll('a[data-c]').forEach(a=>a.addEventListener('click',()=>setCat(a.dataset.c)));
 let st;srch.addEventListener('input',()=>{clearTimeout(st);st=setTimeout(()=>{q=srch.value;draw(true)},150)});
-(function load(n){fetch('/products.json?v='+(document.documentElement.dataset.pv||'')).then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{P=d;draw(true)}).catch(()=>{if(n<3)setTimeout(()=>load(n+1),800*(n+1));else cnt.textContent=''})})(0);
+(function load(n){fetch('/products.json?v='+(document.documentElement.dataset.pv||'')).then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{if(!Array.isArray(d))throw new Error('Invalid catalogue');P=d.filter(p=>Array.isArray(p)&&typeof p[0]==='string'&&typeof p[1]==='string'&&/^[A-Za-z0-9_-]+(?:\/[A-Za-z0-9_-]+)*$/.test(p[1])&&Array.isArray(p[2])&&Array.isArray(p[3]));draw(true)}).catch(()=>{if(n<3)setTimeout(()=>load(n+1),800*(n+1));else cnt.textContent=''})})(0);
 const box=document.getElementById('picked'),cta=document.getElementById('top-cta'),ctaTxt=cta.textContent;
 function drawPicked(){
-  box.innerHTML=picked.size?'<span>'+T.picked+'</span>'+[...picked].map(c=>`<button type="button" data-code="${c}">${c} ×</button>`).join(''):'<span>'+T.none+'</span>';
+  box.innerHTML=picked.size?'<span>'+esc(T.picked)+'</span>'+[...picked].map(c=>`<button type="button" data-code="${esc(c)}">${esc(c)} ×</button>`).join(''):'<span>'+esc(T.none)+'</span>';
   cta.textContent=picked.size?`${ctaTxt} (${picked.size})`:ctaTxt;
   grid.querySelectorAll('.add').forEach(b=>{const on=picked.has(b.dataset.code);b.setAttribute('aria-pressed',on);b.textContent=on?T.added:T.add});
 }
 grid.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;const c=b.dataset.code;picked.has(c)?picked.delete(c):picked.add(c);drawPicked()});
 box.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;picked.delete(b.dataset.code);drawPicked()});
 drawPicked();
-const form=document.getElementById('q'),sent=document.getElementById('sent'),formError=document.getElementById('form-error'),fallback=document.getElementById('form-fallback');
+const form=document.getElementById('q'),sent=document.getElementById('sent');
+const statusNode=(id,role)=>{let n=document.getElementById(id);if(!n){n=document.createElement('p');n.id=id;n.setAttribute('role',role);n.hidden=true;form.appendChild(n)}return n};
+const formError=statusNode('form-error','alert'),fallback=statusNode('form-fallback','status');
 const M=T.formMessages||{};
 let sending=false;
 function showError(key,contact=false){
@@ -45,9 +47,10 @@ form.addEventListener('submit',async e=>{
   if(fl.reduce((a,x)=>a+x.size,0)>10e6){showError('tooLarge');return}
   if(fl.some(x=>!/\.(jpe?g|png|pdf)$/i.test(x.name))){showError('badType');return}
   const v=id=>document.getElementById(id).value.trim();
+  if(v('f-hp')){showError('failed',true);return}
   const submittedCodes=[...picked];
-  const subj='Inquiry from '+(v('f-co')||v('f-name'))+(v('f-country')?' ('+v('f-country')+')':'');
-  const data={_subject:subj,_replyto:v('f-mail'),email:v('f-mail'),_template:'box',_captcha:'false',name:v('f-name'),country:v('f-country'),company:v('f-co'),product:v('f-prod'),quantity:v('f-qty'),styles:submittedCodes.join(', ')||'-',language:document.documentElement.lang,message:v('f-msg'),_honey:v('f-hp')};
+  const subj=('Inquiry from '+(v('f-co')||v('f-name'))+(v('f-country')?' ('+v('f-country')+')':'')).replace(/[\r\n]/g,' ').slice(0,250);
+  const data={_subject:subj,_replyto:v('f-mail'),email:v('f-mail'),_template:'box',name:v('f-name'),country:v('f-country'),company:v('f-co'),product:v('f-prod'),quantity:v('f-qty'),styles:submittedCodes.join(', ')||'-',language:document.documentElement.lang,message:v('f-msg'),_honey:v('f-hp')};
   let req;if(fl.length){const fd=new FormData();Object.entries(data).forEach(([k,x])=>fd.append(k,x));fl.forEach((x,i)=>fd.append('attachment'+(i?i+1:''),x));req={method:'POST',headers:{Accept:'application/json'},body:fd}}
   else req={method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)};
   const controller=new AbortController();req.signal=controller.signal;
