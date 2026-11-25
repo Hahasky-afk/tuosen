@@ -2,6 +2,8 @@
 <html lang="fr" dir="ltr" data-pv="e64f4e17">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-+YWZJgdJxGMs+LXj1Mc5bwCn178KhwEVXiM6XX/Re9c=' 'sha256-nvNSFN+I1WALlEZfeGxj6XzKfU60EnIpPqpJqoQSi7c=' 'sha256-VjlCls0fzi4WtLlaa0syfhz6qzxcttAJaZnczu4This='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tuosen Apparel | Usine de vêtements en Chine. Gros et marque propre, grandes et très grandes tailles</title>
 <meta name="description" content="Usine de vêtements à Jieyang, en Chine, spécialisée dans la production en volume pour grossistes et marques du monde entier. T-shirts, polos, ensembles, sweats, shorts et pantalons homme et femme. Plus de 2 000 modèles fabriqués, production de grandes et très grandes tailles, coupe et grammage personnalisés.">
@@ -172,19 +174,19 @@
   <form id="q" novalidate>
     <input id="f-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0">
     <div class="r2">
-      <label for="f-name">Votre nom *<input id="f-name" required autocomplete="name"></label>
-      <label for="f-mail">Email *<input id="f-mail" type="email" required autocomplete="email"></label>
+      <label for="f-name">Votre nom *<input id="f-name" maxlength="160" required autocomplete="name"></label>
+      <label for="f-mail">Email *<input id="f-mail" maxlength="254" type="email" required autocomplete="email"></label>
     </div>
     <div class="r2">
-      <label for="f-country">Pays<input id="f-country" autocomplete="country-name" placeholder="Facultatif"></label>
-      <label for="f-co">Société<input id="f-co" autocomplete="organization" placeholder="Facultatif"></label>
+      <label for="f-country">Pays<input id="f-country" maxlength="100" autocomplete="country-name" placeholder="Facultatif"></label>
+      <label for="f-co">Société<input id="f-co" maxlength="200" autocomplete="organization" placeholder="Facultatif"></label>
     </div>
     <div class="r2">
       <label for="f-prod">Produit<select id="f-prod"><option value="" selected>Sélectionnez une catégorie (facultatif)</option><option>T-shirts</option><option>Polos</option><option>Ensembles</option><option>Pantalons</option><option>Shorts</option><option>Sweats et hoodies</option><option>Maille</option><option>Chemises</option><option>Vestes</option><option>Femme</option><option>Autre / mon propre modèle</option></select></label>
       <label for="f-qty">Quantité par modèle (pièces)<input id="f-qty" type="text" maxlength="60" placeholder="Quantité approximative (facultatif)"></label>
     </div>
     <div class="picked" id="picked" aria-live="polite"></div>
-    <label for="f-msg">De quoi avez-vous besoin ? *<textarea id="f-msg" rows="4" required placeholder="Modèle, tissu et grammage, coupe, grille de tailles, coloris, logo, prix cible"></textarea></label>
+    <label for="f-msg">De quoi avez-vous besoin ? *<textarea id="f-msg" maxlength="6000" rows="4" required placeholder="Modèle, tissu et grammage, coupe, grille de tailles, coloris, logo, prix cible"></textarea></label>
     <label for="f-files">Photos ou fiche technique <span class="opt">Jusqu'à 5 fichiers, 10 Mo au total. JPG, PNG ou PDF.</span><input id="f-files" type="file" multiple accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"></label>
     <button class="btn" type="submit">Envoyer la demande</button>
     <p class="sent" id="sent" role="status" hidden>Merci. Le service de formulaire a accepté votre demande. Si vous ne recevez pas de réponse, contactez directement Yang.</p>
@@ -205,6 +207,6 @@
 <a class="float" href="https://wa.me/8615549315379?text=Bonjour%20Yang%2C%20j%27ai%20vu%20Tuosen%20Apparel%20sur%20votre%20site." target="_blank" rel="noopener" aria-label="WhatsApp Yang"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z" fill="currentColor"/></svg><span>WhatsApp</span></a>
 
 <script>window.T={"add":"Ajouter à la demande","added":"Ajouté ✓","picked":"Modèles dans cette demande :","none":"Aucun modèle ajouté. Utilisez « Ajouter à la demande » sur un produit ou décrivez votre modèle ci-dessous.","cats":{"all":"Tout","basics":"Basiques unis","tees":"T-shirts","polos":"Polos","sets":"Ensembles","pants":"Pantalons","shorts":"Shorts","sweats":"Sweats et hoodies","knit":"Maille","shirts":"Chemises","jackets":"Vestes","women":"Femme"},"tags":{"waffle":"Gaufré","heavy":"Grammage lourd","knit":"Maille effet coton","air":"Maille air-layer","cord":"Velours côtelé","washed":"Délavé","thermal":"Thermique","pique":"Piqué","cargo":"Cargo","wide":"Jambe large","barrel":"Coupe tonneau","zip":"Zip","embroid":"Brodé","jacquard":"Jacquard","gradient":"Dégradé","layered":"Effet superposé","plain":"Uni","print":"Imprimé"},"shipped":"pièces fabriquées","search":"Chercher une réf.","more":"Voir plus","count":"{n} modèles","proven":"Éprouvé en volume","ts":{"TS-01":"T-shirt oversize","TS-02":"Pantalon maille jambe large","TS-03":"Pantalon large à pinces","TS-04":"Pantalon lounge jambe large","TS-05":"Chemise manches longues homme","TS-06":"Pull demi-zip","TS-07":"Pantalon cargo coupe tonneau","TS-08":"Short chino","TS-09":"T-shirt manches longues flatlock","TS-10":"Débardeur ajusté","TS-11":"Sweat à capuche","TS-12":"Débardeur sans manches","TS-13":"Veste peluche femme","TS-14":"Manteau long à capuche","TS-15":"Veste sherpa zippée"},"refSize":"Réf.","formMessages":{"tooMany":"Sélectionnez 5 fichiers au maximum.","tooLarge":"La taille totale ne doit pas dépasser 10 Mo.","badType":"Utilisez des fichiers JPG, PNG ou PDF.","failed":"Nous n'avons pas pu confirmer l'envoi de votre demande. Vos données sont toujours ici. Réessayez ou contactez-nous directement."}};</script>
-<script src="/site.js?v=inquiry-20261125"></script>
+<script src="/site.js?v=release-20261125"></script>
 </body>
 </html>
