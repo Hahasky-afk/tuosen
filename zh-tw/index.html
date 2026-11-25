@@ -2,6 +2,8 @@
 <html lang="zh-Hant" dir="ltr" data-pv="e64f4e17">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-+YWZJgdJxGMs+LXj1Mc5bwCn178KhwEVXiM6XX/Re9c=' 'sha256-ZhzzWKosDXsMT1ZKPLzP+dZuoUpsmTh02kUq1xRq9FY=' 'sha256-RPTEWcc4Q2tktUH2F6R+3oLdHj1UB/8nCe/rjyfradE='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tuosen Apparel 拓森服飾 | 中國服裝工廠，批發、貼牌、大碼及特大碼客製</title>
 <meta name="description" content="揭陽服裝工廠，專注服裝批量生產，為全球批發商與品牌提供穩定供應。男女裝 T 恤、Polo、套裝、衛衣、短褲、長褲，已做 2,000+ 款，支援大碼、特大碼及版型、面料克重客製。">
@@ -172,19 +174,19 @@
   <form id="q" novalidate>
     <input id="f-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0">
     <div class="r2">
-      <label for="f-name">你的名字 *<input id="f-name" required autocomplete="name"></label>
-      <label for="f-mail">Email *<input id="f-mail" type="email" required autocomplete="email"></label>
+      <label for="f-name">你的名字 *<input id="f-name" maxlength="160" required autocomplete="name"></label>
+      <label for="f-mail">Email *<input id="f-mail" maxlength="254" type="email" required autocomplete="email"></label>
     </div>
     <div class="r2">
-      <label for="f-country">國家/地區<input id="f-country" autocomplete="country-name" placeholder="選填"></label>
-      <label for="f-co">公司<input id="f-co" autocomplete="organization" placeholder="選填"></label>
+      <label for="f-country">國家/地區<input id="f-country" maxlength="100" autocomplete="country-name" placeholder="選填"></label>
+      <label for="f-co">公司<input id="f-co" maxlength="200" autocomplete="organization" placeholder="選填"></label>
     </div>
     <div class="r2">
       <label for="f-prod">產品<select id="f-prod"><option value="" selected>選擇產品類別（選填）</option><option>T恤</option><option>Polo衫</option><option>套裝</option><option>長褲</option><option>短褲</option><option>衛衣</option><option>針織衫</option><option>襯衫</option><option>外套</option><option>女裝</option><option>其他 / 我自己的設計</option></select></label>
       <label for="f-qty">每款數量（件）<input id="f-qty" type="text" maxlength="60" placeholder="大概數量（選填）"></label>
     </div>
     <div class="picked" id="picked" aria-live="polite"></div>
-    <label for="f-msg">你需要什麼？ *<textarea id="f-msg" rows="4" required placeholder="款式、布料與克重、版型、尺碼表、顏色、Logo、目標價"></textarea></label>
+    <label for="f-msg">你需要什麼？ *<textarea id="f-msg" maxlength="6000" rows="4" required placeholder="款式、布料與克重、版型、尺碼表、顏色、Logo、目標價"></textarea></label>
     <label for="f-files">圖片或規格書 <span class="opt">最多 5 個檔案，共 10 MB。JPG、PNG 或 PDF。</span><input id="f-files" type="file" multiple accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"></label>
     <button class="btn" type="submit">送出詢價</button>
     <p class="sent" id="sent" role="status" hidden>謝謝，表單服務已接受您的詢價。如未收到回覆，請直接聯絡 Yang。</p>
@@ -205,6 +207,6 @@
 <a class="float" href="https://wa.me/8615549315379?text=Hi%20Yang%EF%BC%8C%E6%88%91%E5%9C%A8%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%20Tuosen%20Apparel%E3%80%82" target="_blank" rel="noopener" aria-label="WhatsApp Yang"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z" fill="currentColor"/></svg><span>WhatsApp</span></a>
 
 <script>window.T={"add":"加入詢價","added":"已加入 ✓","picked":"這次詢價的款式：","none":"還沒有加入款式。在任何產品上按「加入詢價」，或在下方描述你的設計。","cats":{"all":"全部","basics":"光板通用款","tees":"T恤","polos":"Polo衫","sets":"套裝","pants":"長褲","shorts":"短褲","sweats":"衛衣","knit":"針織衫","shirts":"襯衫","jackets":"外套","women":"女裝"},"tags":{"waffle":"華夫格","heavy":"重磅","knit":"華棉","air":"空氣層","cord":"燈芯絨","washed":"水洗","thermal":"德絨保暖","pique":"珠地","cargo":"工裝","wide":"闊腿","barrel":"彎刀","zip":"拉鍊","embroid":"刺繡","jacquard":"提花","gradient":"漸層","layered":"假兩件","plain":"素色","print":"印花"},"shipped":"件已生產","search":"搜尋款號","more":"顯示更多","count":"共 {n} 款","proven":"大貨驗證","ts":{"TS-01":"寬鬆T恤","TS-02":"華棉闊腿衛褲","TS-03":"打褶闊腿衛褲","TS-04":"闊腿休閒衛褲","TS-05":"男裝長袖襯衫","TS-06":"半拉鍊上衣","TS-07":"華棉彎刀工裝褲","TS-08":"工裝短褲","TS-09":"四針六線長袖T恤","TS-10":"修身背心","TS-11":"連帽衛衣","TS-12":"無袖坎肩背心","TS-13":"女裝毛絨外套","TS-14":"連帽長大衣","TS-15":"羊羔毛拉鍊外套"},"refSize":"參考","formMessages":{"tooMany":"最多選擇 5 個檔案。","tooLarge":"檔案總大小不得超過 10 MB。","badType":"請使用 JPG、PNG 或 PDF 檔案。","failed":"暫時無法確認詢價已送出。您的資料仍保留在此頁，請重試或直接聯絡我們。"}};</script>
-<script src="/site.js?v=inquiry-20261125"></script>
+<script src="/site.js?v=release-20261125"></script>
 </body>
 </html>
