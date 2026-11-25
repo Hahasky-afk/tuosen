@@ -2,6 +2,8 @@
 <html lang="es" dir="ltr" data-pv="e64f4e17">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-+YWZJgdJxGMs+LXj1Mc5bwCn178KhwEVXiM6XX/Re9c=' 'sha256-+CY3fZrXbl2IcF6Jvs3N/xvG715dO8RZ7b7l6eRsm28=' 'sha256-NOBjdof3xaK8QLUK+pX6iKwMmMpzrapU3WlqmqS+qvg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formsubmit.co; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tuosen Apparel | Fábrica de ropa en China. Mayoreo y marca propia, tallas grandes y extragrandes</title>
 <meta name="description" content="Fábrica de ropa en Jieyang, China, especializada en producción al por mayor para mayoristas y marcas de todo el mundo. Camisetas, polos, conjuntos, sudaderas, shorts y pantalones para hombre y mujer. Más de 2,000 modelos fabricados, producción de tallas grandes y extragrandes, con ajuste y gramaje personalizados.">
@@ -172,19 +174,19 @@
   <form id="q" novalidate>
     <input id="f-hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0">
     <div class="r2">
-      <label for="f-name">Tu nombre *<input id="f-name" required autocomplete="name"></label>
-      <label for="f-mail">Email *<input id="f-mail" type="email" required autocomplete="email"></label>
+      <label for="f-name">Tu nombre *<input id="f-name" maxlength="160" required autocomplete="name"></label>
+      <label for="f-mail">Email *<input id="f-mail" maxlength="254" type="email" required autocomplete="email"></label>
     </div>
     <div class="r2">
-      <label for="f-country">País<input id="f-country" autocomplete="country-name" placeholder="Opcional"></label>
-      <label for="f-co">Empresa<input id="f-co" autocomplete="organization" placeholder="Opcional"></label>
+      <label for="f-country">País<input id="f-country" maxlength="100" autocomplete="country-name" placeholder="Opcional"></label>
+      <label for="f-co">Empresa<input id="f-co" maxlength="200" autocomplete="organization" placeholder="Opcional"></label>
     </div>
     <div class="r2">
       <label for="f-prod">Producto<select id="f-prod"><option value="" selected>Selecciona una categoría (opcional)</option><option>Camisetas</option><option>Polos</option><option>Conjuntos</option><option>Pantalones</option><option>Shorts</option><option>Sudaderas y hoodies</option><option>Punto</option><option>Camisas</option><option>Chaquetas</option><option>Mujer</option><option>Otro / mi propio diseño</option></select></label>
       <label for="f-qty">Cantidad por modelo (piezas)<input id="f-qty" type="text" maxlength="60" placeholder="Cantidad aproximada (opcional)"></label>
     </div>
     <div class="picked" id="picked" aria-live="polite"></div>
-    <label for="f-msg">¿Qué necesitas? *<textarea id="f-msg" rows="4" required placeholder="Modelo, tela y gramaje, ajuste, tabla de tallas, colores, logo, precio objetivo"></textarea></label>
+    <label for="f-msg">¿Qué necesitas? *<textarea id="f-msg" maxlength="6000" rows="4" required placeholder="Modelo, tela y gramaje, ajuste, tabla de tallas, colores, logo, precio objetivo"></textarea></label>
     <label for="f-files">Fotos o ficha técnica <span class="opt">Hasta 5 archivos, 10 MB en total. JPG, PNG o PDF.</span><input id="f-files" type="file" multiple accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"></label>
     <button class="btn" type="submit">Enviar consulta</button>
     <p class="sent" id="sent" role="status" hidden>Gracias. El servicio de formularios ha aceptado tu consulta. Si no recibes respuesta, contacta directamente con Yang.</p>
@@ -205,6 +207,6 @@
 <a class="float" href="https://wa.me/8615549315379?text=Hola%20Yang%2C%20vi%20Tuosen%20Apparel%20en%20su%20web." target="_blank" rel="noopener" aria-label="WhatsApp Yang"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.6 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z" fill="currentColor"/></svg><span>WhatsApp</span></a>
 
 <script>window.T={"add":"Añadir a la consulta","added":"Añadido ✓","picked":"Modelos en esta consulta:","none":"Aún no has añadido modelos. Usa “Añadir a la consulta” en cualquier producto o describe tu diseño abajo.","cats":{"all":"Todo","basics":"Básicos lisos","tees":"Camisetas","polos":"Polos","sets":"Conjuntos","pants":"Pantalones","shorts":"Shorts","sweats":"Sudaderas y hoodies","knit":"Punto","shirts":"Camisas","jackets":"Chaquetas","women":"Mujer"},"tags":{"waffle":"Punto waffle","heavy":"Gramaje alto","knit":"Punto tipo algodón","air":"Punto air-layer","cord":"Pana","washed":"Lavado","thermal":"Térmico","pique":"Piqué","cargo":"Cargo","wide":"Pierna ancha","barrel":"Pierna barril","zip":"Cremallera","embroid":"Bordado","jacquard":"Jacquard","gradient":"Degradado","layered":"Efecto dos piezas","plain":"Liso","print":"Estampado"},"shipped":"piezas fabricadas","search":"Buscar nº de modelo","more":"Ver más","count":"{n} modelos","proven":"Probado en volumen","ts":{"TS-01":"Camiseta oversize","TS-02":"Pantalón de punto pierna ancha","TS-03":"Pantalón ancho con pinzas","TS-04":"Pantalón lounge pierna ancha","TS-05":"Camisa manga larga hombre","TS-06":"Sudadera de media cremallera","TS-07":"Pantalón cargo pierna barril","TS-08":"Short chino de trabajo","TS-09":"Camiseta de manga larga flatlock","TS-10":"Camiseta sin mangas ajustada","TS-11":"Hoodie","TS-12":"Camiseta sin mangas","TS-13":"Chaqueta peluche mujer","TS-14":"Abrigo largo con capucha","TS-15":"Chaqueta sherpa con cremallera"},"refSize":"Ref.","formMessages":{"tooMany":"Selecciona un máximo de 5 archivos.","tooLarge":"El tamaño total no puede superar 10 MB.","badType":"Usa archivos JPG, PNG o PDF.","failed":"No pudimos confirmar el envío de tu consulta. Tus datos siguen aquí. Inténtalo de nuevo o contáctanos directamente."}};</script>
-<script src="/site.js?v=inquiry-20261125"></script>
+<script src="/site.js?v=release-20261125"></script>
 </body>
 </html>
