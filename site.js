@@ -8,7 +8,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 function card(p){const [code,img,k,t,z,n]=p;const main=k[0]==='basics'?k[1]:k[0];
  const name=TSN[code]||C[main]||'';const tags=t.map(x=>TG[x]).filter(Boolean).slice(0,2);
  return `<article class="item${n?' made':''}"><div class="ph"><img src="/img/${img}.jpg" alt="${esc(name+' '+code)}" loading="lazy" width="560" height="700">${n?`<span class="mk">${esc(n)} ${esc(T.shipped)}</span>`:''}</div>
-<div class="tx"><div class="row"><span>${esc(code)}</span><span class="sz">${esc(z)}</span></div><h3>${esc(name)}</h3>${tags.length?`<p class="tg">${tags.map(esc).join(' · ')}</p>`:''}
+<div class="tx"><div class="row"><span>${esc(code)}</span><span class="sz">${z?esc((T.refSize||"Ref.")+" "+z):""}</span></div><h3>${esc(name)}</h3>${tags.length?`<p class="tg">${tags.map(esc).join(' · ')}</p>`:''}
 <button type="button" class="add" data-code="${esc(code)}" aria-pressed="${picked.has(code)}">${picked.has(code)?T.added:T.add}</button></div></article>`}
 function list(){const Q=q.trim().toUpperCase();return P.filter(p=>(cat==='all'||p[2].includes(cat))&&(!Q||p[0].toUpperCase().includes(Q)))}
 function draw(reset){const L=list();if(reset){shown=0;grid.innerHTML=''}
@@ -29,21 +29,37 @@ function drawPicked(){
 grid.addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;const c=b.dataset.code;picked.has(c)?picked.delete(c):picked.add(c);drawPicked()});
 box.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;picked.delete(b.dataset.code);drawPicked()});
 drawPicked();
-document.getElementById('q').addEventListener('submit',e=>{
-  e.preventDefault();const f=e.target;if(!f.checkValidity()){f.reportValidity();return}
+const form=document.getElementById('q'),sent=document.getElementById('sent'),formError=document.getElementById('form-error'),fallback=document.getElementById('form-fallback');
+const M=T.formMessages||{};
+let sending=false;
+function showError(key,contact=false){
+  formError.textContent=M[key]||M.failed||'Unable to submit. Please try again.';
+  formError.hidden=false;fallback.hidden=!contact;
+}
+form.addEventListener('submit',async e=>{
+  e.preventDefault();if(sending)return;
+  sent.hidden=true;formError.hidden=true;fallback.hidden=true;
+  const f=e.target;if(!f.checkValidity()){f.reportValidity();return}
+  const fl=[...document.getElementById('f-files').files];
+  if(fl.length>5){showError('tooMany');return}
+  if(fl.reduce((a,x)=>a+x.size,0)>10e6){showError('tooLarge');return}
+  if(fl.some(x=>!/\.(jpe?g|png|pdf)$/i.test(x.name))){showError('badType');return}
   const v=id=>document.getElementById(id).value.trim();
-  const body=['Name: '+v('f-name'),'Email: '+v('f-mail'),'Country: '+v('f-country'),'Company: '+v('f-co'),'Product: '+v('f-prod'),'Quantity per style: '+v('f-qty'),'Styles: '+([...picked].join(', ')||'-'),'Language: '+document.documentElement.lang,'','Details:',v('f-msg')].join('\n');
+  const submittedCodes=[...picked];
   const subj='Inquiry from '+(v('f-co')||v('f-name'))+(v('f-country')?' ('+v('f-country')+')':'');
-  const mail=()=>{location.href='mailto:yang@tuosenapparel.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body+'\n\n(Attach reference photos or a tech pack to this email.)')};
-  const btn=f.querySelector('button[type=submit]');if(btn)btn.disabled=true;
-  const fl=[...document.getElementById('f-files').files].slice(0,5);
-  if(fl.reduce((a,x)=>a+x.size,0)>10e6){alert('Max 10 MB');if(btn)btn.disabled=false;return}
-  const data={_subject:subj,_replyto:v('f-mail'),email:v('f-mail'),_template:'box',_captcha:'false',name:v('f-name'),country:v('f-country'),company:v('f-co'),product:v('f-prod'),quantity:v('f-qty'),styles:[...picked].join(', ')||'-',language:document.documentElement.lang,message:v('f-msg'),_honey:v('f-hp')};
+  const data={_subject:subj,_replyto:v('f-mail'),email:v('f-mail'),_template:'box',_captcha:'false',name:v('f-name'),country:v('f-country'),company:v('f-co'),product:v('f-prod'),quantity:v('f-qty'),styles:submittedCodes.join(', ')||'-',language:document.documentElement.lang,message:v('f-msg'),_honey:v('f-hp')};
   let req;if(fl.length){const fd=new FormData();Object.entries(data).forEach(([k,x])=>fd.append(k,x));fl.forEach((x,i)=>fd.append('attachment'+(i?i+1:''),x));req={method:'POST',headers:{Accept:'application/json'},body:fd}}
   else req={method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)};
-  fetch('https://formsubmit.co/ajax/yang@tuosenapparel.com',req)
-  .then(r=>r.json()).then(d=>{if(String(d.success)!=='true')throw 0;document.getElementById('sent').hidden=false;f.reset()})
-  .catch(mail).finally(()=>{if(btn)btn.disabled=false});
+  const controller=new AbortController();req.signal=controller.signal;
+  sending=true;const controls=[...f.elements].filter(x=>!x.disabled);controls.forEach(x=>x.disabled=true);
+  f.setAttribute('aria-busy','true');const timeout=setTimeout(()=>controller.abort(),20000);
+  try{
+    const r=await fetch('https://formsubmit.co/ajax/yang@tuosenapparel.com',req);
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const d=await r.json();if(String(d.success)!=='true')throw new Error('Rejected');
+    f.reset();submittedCodes.forEach(code=>picked.delete(code));drawPicked();sent.hidden=false;
+  }catch(err){showError('failed',true)}
+  finally{clearTimeout(timeout);sending=false;controls.forEach(x=>x.disabled=false);f.removeAttribute('aria-busy')}
 });
 const fv=document.getElementById('filmv'),fb=document.getElementById('filmbox');
 document.getElementById('filmplay').addEventListener('click',()=>{fb.classList.add('on');fv.controls=true;fv.play()});
